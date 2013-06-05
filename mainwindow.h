@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "cell.h"
+
+#define BOARD_SIZE 9
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +20,7 @@ public:
     
 private:
     Ui::MainWindow *ui;
+    Cell *cell[BOARD_SIZE * BOARD_SIZE];
 };
 
 #endif // MAINWINDOW_H
