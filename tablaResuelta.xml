@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<tabla1>
+	<tabla nro="1">
+		<fila nro="1">
+			<columna nro="1">4</columna>
+			<columna nro="2">9</columna>
+			<columna nro="3">1</columna>
+			<columna nro="4">7</columna>
+			<columna nro="5">3</columna>
+			<columna nro="6">2</columna>
+			<columna nro="7">8</columna>
+			<columna nro="8">6</columna>
+			<columna nro="9">5</columna>
+        </fila>
+		<fila nro="2">
+			<columna nro="1">5</columna>
+			<columna nro="2">2</columna>
+			<columna nro="3">7</columna>
+			<columna nro="4">8</columna>
+			<columna nro="5">1</columna>
+			<columna nro="6">6</columna>
+			<columna nro="7">9</columna>
+			<columna nro="8">4</columna>
+			<columna nro="9">3</columna>
+		</fila>
+		<fila nro="3">
+			<columna nro="1">6</columna>
+			<columna nro="2">8</columna>
+			<columna nro="3">3</columna>
+			<columna nro="4">4</columna>
+			<columna nro="5">5</columna>
+			<columna nro="6">9</columna>
+			<columna nro="7">2</columna>
+			<columna nro="8">1</columna>
+			<columna nro="9">7</columna>
+		</fila>
+		<fila nro="4">
+			<columna nro="1">8</columna>
+			<columna nro="2">5</columna>
+			<columna nro="3">6</columna>
+			<columna nro="4">1</columna>
+			<columna nro="5">9</columna>
+			<columna nro="6">7</columna>
+			<columna nro="7">3</columna>
+			<columna nro="8">2</columna>
+			<columna nro="9">4</columna>
+		</fila>
+		<fila nro="5">
+			<columna nro="1">7</columna>
+			<columna nro="2">1</columna>
+			<columna nro="3">9</columna>
+			<columna nro="4">2</columna>
+			<columna nro="5">4</columna>
+			<columna nro="6">3</columna>
+			<columna nro="7">5</columna>
+			<columna nro="8">8</columna>
+			<columna nro="9">6</columna>
+		</fila>
+		<fila nro="6">
+			<columna nro="1">2</columna>
+			<columna nro="2">3</columna>
+			<columna nro="3">4</columna>
+			<columna nro="4">6</columna>
+			<columna nro="5">8</columna>
+			<columna nro="6">5</columna>
+			<columna nro="7">7</columna>
+			<columna nro="8">9</columna>
+			<columna nro="9">1</columna>
+		</fila>
+		<fila nro="7">
+			<columna nro="1">9</columna>
+			<columna nro="2">6</columna>
+			<columna nro="3">8</columna>
+			<columna nro="4">3</columna>
+			<columna nro="5">7</columna>
+			<columna nro="6">1</columna>
+			<columna nro="7">4</columna>
+			<columna nro="8">5</columna>
+			<columna nro="9">2</columna>
+		</fila>
+		<fila nro="8">
+			<columna nro="1">1</columna>
+			<columna nro="2">7</columna>
+			<columna nro="3">5</columna>
+			<columna nro="4">9</columna>
+			<columna nro="5">2</columna>
+			<columna nro="6">4</columna>
+			<columna nro="7">6</columna>
+			<columna nro="8">3</columna>
+			<columna nro="9">8</columna>
+		</fila>>
+		<fila nro="9">
+			<columna nro="1">3</columna>
+			<columna nro="2">4</columna>
+			<columna nro="3">2</columna>
+			<columna nro="4">5</columna>
+			<columna nro="5">6</columna>
+			<columna nro="6">8</columna>
+			<columna nro="7">1</columna>
+			<columna nro="8">7</columna>
+			<columna nro="9">9</columna>
+		</fila>
+	</tabla>   
+</tabla1>
+
+
