@@ -19,28 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 {
     ui->setupUi(this);
-
-    for( int x = 0; x < BOARD_SIZE; x++ )
-    {
-      for( int y = 0; y < BOARD_SIZE; y++ )
-      {
-        int cont = 0;
-        cont = cont + y + BOARD_SIZE * x;
-        cell[x+y] = new Cell();
-        if((((cont)<3) && ((cont)>-1))||(((cont)<12) && ((cont)>8))||(((cont)<21) && ((cont)>17))||
-             (((cont)<9) && ((cont)>5))||(((cont)<18) && ((cont)>14))||(((cont)<27) && ((cont)>23))||
-            (((cont)<63) && ((cont)>59))||(((cont)<72) && ((cont)>68))||(((cont)<81) && ((cont)>77))||
-            (((cont)<57) && ((cont)>53))||(((cont)<66) && ((cont)>62))||(((cont)<75) && ((cont)>71))||
-            (((cont)<33) && ((cont)>29))||(((cont)<42) && ((cont)>38))||(((cont)<51) && ((cont)>47)))
-        {
-            cell[x+y]->setTextBackgroundColor("#CCCCFF");
-        }
-        else
-            cell[x+y]->setTextBackgroundColor("#CCFFCC");
-        cell[x+y]->setText(QString::number(cont));
-        ui->board->addWidget( cell[x+y], x, y );
-      }
-    }
+    initBoard();
 }
 
 MainWindow::~MainWindow()
@@ -49,6 +28,24 @@ MainWindow::~MainWindow()
  */
 {
     delete ui;}
+
+void MainWindow::initBoard()
+{
+    for ( int x = 0; x < BOARD_SIZE; x++ )
+    {
+      for( int y = 0; y < BOARD_SIZE; y++ )
+      {
+        cell[x+y] = new Cell();
+
+        if ( (y % 3 == 0 && y != 0) || ( y == 0 && x % 3 == 0) )
+          cell[x+y]->swapBackgroundColor();
+
+        // TODO This this should be here
+        cell[x+y]->setText("00");
+        ui->board->addWidget( cell[x+y], x, y);
+      }
+    }
+}
 
 void MainWindow::on_actionSalir_triggered()
 /**

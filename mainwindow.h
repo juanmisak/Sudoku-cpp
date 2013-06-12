@@ -24,6 +24,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Cell *cell[BOARD_SIZE * BOARD_SIZE];
+
+    void initBoard();
 };
 
 #endif // MAINWINDOW_H
