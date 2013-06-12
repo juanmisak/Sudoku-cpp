@@ -3,6 +3,9 @@
 Cell::Cell(QWidget *parent) :
     QTextEdit(parent)
 {
-  this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-  this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+  setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+  setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+  setFontItalic("true");
+  setTextColor("#000066");
+  setFontPointSize(17);
 }

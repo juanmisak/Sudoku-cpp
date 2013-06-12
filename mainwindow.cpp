@@ -27,9 +27,6 @@ MainWindow::MainWindow(QWidget *parent) :
         int cont = 0;
         cont = cont + y + BOARD_SIZE * x;
         cell[x+y] = new Cell();
-        cell[x+y]->setFontItalic("true");
-        cell[x+y]->setTextColor("#000066");
-        cell[x+y]->setFontPointSize(17);
         if((((cont)<3) && ((cont)>-1))||(((cont)<12) && ((cont)>8))||(((cont)<21) && ((cont)>17))||
              (((cont)<9) && ((cont)>5))||(((cont)<18) && ((cont)>14))||(((cont)<27) && ((cont)>23))||
             (((cont)<63) && ((cont)>59))||(((cont)<72) && ((cont)>68))||(((cont)<81) && ((cont)>77))||
