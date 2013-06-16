@@ -1,5 +1,14 @@
 <RCC>
     <qresource prefix="/images">
         <file>qt_sudoku.ico</file>
+        <file>Visualpharm-Icons8-Metro-Style-Numbers-9-filled.ico</file>
+        <file>Visualpharm-Icons8-Metro-Style-Numbers-8-filled.ico</file>
+        <file>Visualpharm-Icons8-Metro-Style-Numbers-7-filled.ico</file>
+        <file>Visualpharm-Icons8-Metro-Style-Numbers-6-filled.ico</file>
+        <file>Visualpharm-Icons8-Metro-Style-Numbers-5-filled.ico</file>
+        <file>Visualpharm-Icons8-Metro-Style-Numbers-4-filled.ico</file>
+        <file>Visualpharm-Icons8-Metro-Style-Numbers-3-filled.ico</file>
+        <file>Visualpharm-Icons8-Metro-Style-Numbers-2-filled.ico</file>
+        <file>Visualpharm-Icons8-Metro-Style-Numbers-1-filled.ico</file>
     </qresource>
 </RCC>

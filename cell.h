@@ -1,7 +1,5 @@
 #ifndef CELL_H
-
 #define CELL_H
-
 #include <QTextEdit>
 
 class Cell : public QTextEdit

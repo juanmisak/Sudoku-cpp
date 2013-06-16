@@ -3,8 +3,8 @@
 
 #include <QMainWindow>
 #include "cell.h"
-
 #define BOARD_SIZE 9
+
 
 namespace Ui {
 class MainWindow;
@@ -26,6 +26,7 @@ private:
     Cell *cell[BOARD_SIZE * BOARD_SIZE];
 
     void initBoard();
+
 };
 
 #endif // MAINWINDOW_H
