@@ -43,7 +43,7 @@ void MainWindow::initBoard()
 
         // TODO This this should be here
 
-        cell[x+y]->setText("00");
+        cell[x+y]->setText(":)");
         ui->board->addWidget( cell[x+y], x, y);
       }
     }    
@@ -58,3 +58,5 @@ void MainWindow::on_actionSalir_triggered()
 {
     qApp->quit();
 }
+
+

@@ -21,6 +21,8 @@ public:
 private slots:
     void on_actionSalir_triggered();
 
+
+
 private:
     Ui::MainWindow *ui;
     Cell *cell[BOARD_SIZE * BOARD_SIZE];

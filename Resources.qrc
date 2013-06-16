@@ -10,5 +10,7 @@
         <file>Visualpharm-Icons8-Metro-Style-Numbers-3-filled.ico</file>
         <file>Visualpharm-Icons8-Metro-Style-Numbers-2-filled.ico</file>
         <file>Visualpharm-Icons8-Metro-Style-Numbers-1-filled.ico</file>
+        <file>Visualpharm-Icons8-Metro-Style-Maps-and-Geolocation-Compass.ico</file>
+        <file>Visualpharm-Icons8-Metro-Style-City-Gps-device.ico</file>
     </qresource>
 </RCC>
