@@ -12,5 +12,11 @@
         <file>Visualpharm-Icons8-Metro-Style-Numbers-1-filled.ico</file>
         <file>Visualpharm-Icons8-Metro-Style-Maps-and-Geolocation-Compass.ico</file>
         <file>Visualpharm-Icons8-Metro-Style-City-Gps-device.ico</file>
+        <file>Visualpharm-Icons8-Metro-Style-Objects-Joystick.ico</file>
+        <file>Visualpharm-Icons8-Metro-Style-Business-Businessman.ico</file>
+        <file>Visualpharm-Icons8-Metro-Style-Charts-Combo.ico</file>
+        <file>Visualpharm-Icons8-Metro-Style-Chess-Knight.ico</file>
+        <file>Visualpharm-Icons8-Metro-Style-Chess-Pawn.ico</file>
+        <file>Visualpharm-Icons8-Metro-Style-Chess-Queen.ico</file>
     </qresource>
 </RCC>
