@@ -1,0 +1,16 @@
+Portada: En esta página esta el título del manual, una imagen del producto, el logo de la empresa y el número de versión del documento.
+Título: En esta página se muestra información sobre el producto al que pertenece el manual y la empresa que lo elaboró, derechos de autor y
+acuerdos de licencia de uso.
+Histórico de revisiones: En esta sección se muestra un tabla explicando los cambios que ha tenido el manual en cada versión que se ha realizado.
+Tabla de contenido: Lista el contenido del manual. En caso de manuales extensos, se deberían incluir también lista de tablas y lista de figuras.
+Contenido del Manual
+Encabezado y Pie de Página: Deberían mostrar el número de la página y la sección. Esto permitirá al usuario guiarse dentro del documento.
+Prefacio: En esta sección se debe realizar la descripción general del producto, requerimientos para usarlo y descripción delos capítulos 
+que componen el manual.
+Guía Rápida de uso: En los casos donde el producto tiene muchas funciones, puede ser bueno incluir una guía rápida de como utilizarlo. 
+Esta guía debe buscar ser corta y útil para la mayor cantidad de personas dentro del público objetivo.
+Manual de Usuario: Se refiere al contenido principal, para la construcción del contenido es importante tener que su profundidad depende 
+del público al que va dirigido. Por lo tanto a pesar de que usted considere que hay pasos obvios, estos no necesariamente lo son para su cliente. 
+En los casos de que el manual busque ser referencia de desarrollo, es apropiada la incluición de diseños electrónicos y segmentos de código.
+Solución de problemas comunes – Preguntas frecuentes: En esta sección se registra las preguntas y problemas más comunes respecto al producto. 
+Es importante ir actualizando esta sección a medida que se van encontrando nuevos problemas en el uso del producto.
