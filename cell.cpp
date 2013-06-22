@@ -1,25 +1,22 @@
 #include "cell.h"
+#include "QPushButton"
+
 
 Cell::Cell(QWidget *parent) :
-    QTextEdit(parent)
+    QPushButton(parent)
 {
-  setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-  setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-  setFontItalic("true");
-  setTextColor("#000066");
-  setFontPointSize(17);
-  setTextBackgroundColor(defaultBackgroundColor);
+    QFont font1;
+          font1.setFamily(QStringLiteral("Arial"));
+          font1.setPointSize(16);
+          font1.setBold(false);
+          font1.setWeight(50);
+          this->setFont(font1);
+    QIcon icon1;
+           icon1.addFile(QStringLiteral(":/images/Mysitemyway-Blue-Jeans-Social-Media-Delicious-square.ico"), QSize(), QIcon::Normal, QIcon::Off);
+    this->setIcon(icon1);
+    this->setIconSize(QSize(30, 30));
+    this->backgroundRole();    
+    this->setFlat(true);
 }
 
-void Cell::swapBackgroundColor()
-{
-    QColor c1 = QColor("#CCCCFF");
-    QColor c2 = QColor("#CCFFCC");
 
-    QColor& c = (textBackgroundColor() == c1) ? c2 : c1;
-
-    setTextBackgroundColor(c);
-    defaultBackgroundColor = c;
-}
-
-QColor Cell::defaultBackgroundColor = QColor("#CCCCFF");

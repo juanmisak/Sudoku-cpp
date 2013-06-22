@@ -1,15 +1,15 @@
 <RCC>
     <qresource prefix="/images">
         <file>qt_sudoku.ico</file>
-        <file>Visualpharm-Icons8-Metro-Style-Numbers-9-filled.ico</file>
-        <file>Visualpharm-Icons8-Metro-Style-Numbers-8-filled.ico</file>
-        <file>Visualpharm-Icons8-Metro-Style-Numbers-7-filled.ico</file>
-        <file>Visualpharm-Icons8-Metro-Style-Numbers-6-filled.ico</file>
-        <file>Visualpharm-Icons8-Metro-Style-Numbers-5-filled.ico</file>
-        <file>Visualpharm-Icons8-Metro-Style-Numbers-4-filled.ico</file>
-        <file>Visualpharm-Icons8-Metro-Style-Numbers-3-filled.ico</file>
-        <file>Visualpharm-Icons8-Metro-Style-Numbers-2-filled.ico</file>
-        <file>Visualpharm-Icons8-Metro-Style-Numbers-1-filled.ico</file>
+        <file>Numbers-9.ico</file>
+        <file>Numbers-8.ico</file>
+        <file>Numbers-7.ico</file>
+        <file>Numbers-6.ico</file>
+        <file>Numbers-5.ico</file>
+        <file>Numbers-4.ico</file>
+        <file>Numbers-3.ico</file>
+        <file>Numbers-2.ico</file>
+        <file>Numbers-1.ico</file>
         <file>Visualpharm-Icons8-Metro-Style-Maps-and-Geolocation-Compass.ico</file>
         <file>Visualpharm-Icons8-Metro-Style-City-Gps-device.ico</file>
         <file>Visualpharm-Icons8-Metro-Style-Objects-Joystick.ico</file>
@@ -18,5 +18,6 @@
         <file>Visualpharm-Icons8-Metro-Style-Chess-Knight.ico</file>
         <file>Visualpharm-Icons8-Metro-Style-Chess-Pawn.ico</file>
         <file>Visualpharm-Icons8-Metro-Style-Chess-Queen.ico</file>
+        <file>Mysitemyway-Blue-Jeans-Social-Media-Delicious-square.ico</file>
     </qresource>
 </RCC>

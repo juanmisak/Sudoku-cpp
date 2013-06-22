@@ -13,22 +13,23 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-    
+
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    
+
 private slots:
     void on_actionSalir_triggered();
-
-
+    void celda_clicked();
+    void number_clicked();
 
 private:
     Ui::MainWindow *ui;
     Cell *cell[BOARD_SIZE * BOARD_SIZE];
-
+    QIcon icon1;
+    char selectedNumber;
     void initBoard();
-
 };
 
 #endif // MAINWINDOW_H
+

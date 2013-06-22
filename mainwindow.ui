@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>472</width>
+    <width>473</width>
     <height>513</height>
    </rect>
   </property>
@@ -468,7 +468,7 @@
        </property>
        <property name="icon">
         <iconset resource="Resources.qrc">
-         <normaloff>:/images/Visualpharm-Icons8-Metro-Style-Numbers-1-filled.ico</normaloff>:/images/Visualpharm-Icons8-Metro-Style-Numbers-1-filled.ico</iconset>
+         <normaloff>:/images/Numbers-1.ico</normaloff>:/images/Numbers-1.ico</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -500,7 +500,7 @@
        </property>
        <property name="icon">
         <iconset resource="Resources.qrc">
-         <normaloff>:/images/Visualpharm-Icons8-Metro-Style-Numbers-2-filled.ico</normaloff>:/images/Visualpharm-Icons8-Metro-Style-Numbers-2-filled.ico</iconset>
+         <normaloff>:/images/Numbers-2.ico</normaloff>:/images/Numbers-2.ico</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -520,7 +520,7 @@
        </property>
        <property name="icon">
         <iconset resource="Resources.qrc">
-         <normaloff>:/images/Visualpharm-Icons8-Metro-Style-Numbers-3-filled.ico</normaloff>:/images/Visualpharm-Icons8-Metro-Style-Numbers-3-filled.ico</iconset>
+         <normaloff>:/images/Numbers-3.ico</normaloff>:/images/Numbers-3.ico</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -540,7 +540,7 @@
        </property>
        <property name="icon">
         <iconset resource="Resources.qrc">
-         <normaloff>:/images/Visualpharm-Icons8-Metro-Style-Numbers-4-filled.ico</normaloff>:/images/Visualpharm-Icons8-Metro-Style-Numbers-4-filled.ico</iconset>
+         <normaloff>:/images/Numbers-4.ico</normaloff>:/images/Numbers-4.ico</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -560,7 +560,7 @@
        </property>
        <property name="icon">
         <iconset resource="Resources.qrc">
-         <normaloff>:/images/Visualpharm-Icons8-Metro-Style-Numbers-5-filled.ico</normaloff>:/images/Visualpharm-Icons8-Metro-Style-Numbers-5-filled.ico</iconset>
+         <normaloff>:/images/Numbers-5.ico</normaloff>:/images/Numbers-5.ico</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -580,27 +580,7 @@
        </property>
        <property name="icon">
         <iconset resource="Resources.qrc">
-         <normaloff>:/images/Visualpharm-Icons8-Metro-Style-Numbers-6-filled.ico</normaloff>:/images/Visualpharm-Icons8-Metro-Style-Numbers-6-filled.ico</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>50</width>
-         <height>50</height>
-        </size>
-       </property>
-       <property name="flat">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="Resources.qrc">
-         <normaloff>:/images/Visualpharm-Icons8-Metro-Style-Numbers-7-filled.ico</normaloff>:/images/Visualpharm-Icons8-Metro-Style-Numbers-7-filled.ico</iconset>
+         <normaloff>:/images/Numbers-6.ico</normaloff>:/images/Numbers-6.ico</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -620,7 +600,7 @@
        </property>
        <property name="icon">
         <iconset resource="Resources.qrc">
-         <normaloff>:/images/Visualpharm-Icons8-Metro-Style-Numbers-8-filled.ico</normaloff>:/images/Visualpharm-Icons8-Metro-Style-Numbers-8-filled.ico</iconset>
+         <normaloff>:/images/Numbers-7.ico</normaloff>:/images/Numbers-7.ico</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -640,7 +620,27 @@
        </property>
        <property name="icon">
         <iconset resource="Resources.qrc">
-         <normaloff>:/images/Visualpharm-Icons8-Metro-Style-Numbers-9-filled.ico</normaloff>:/images/Visualpharm-Icons8-Metro-Style-Numbers-9-filled.ico</iconset>
+         <normaloff>:/images/Numbers-8.ico</normaloff>:/images/Numbers-8.ico</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton9">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="Resources.qrc">
+         <normaloff>:/images/Numbers-9.ico</normaloff>:/images/Numbers-9.ico</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -723,7 +723,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>472</width>
+     <width>473</width>
      <height>21</height>
     </rect>
    </property>
