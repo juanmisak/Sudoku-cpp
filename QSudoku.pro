@@ -16,12 +16,14 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     cell.cpp \
     home.cpp \
-    developer.cpp
+    developer.cpp \
+    keyboard.cpp
 
 HEADERS  += mainwindow.h \
     cell.h \
     home.h \
-    developer.h
+    developer.h \
+    keyboard.h
 
 FORMS    += mainwindow.ui \
     home.ui \
