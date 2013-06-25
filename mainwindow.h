@@ -9,6 +9,7 @@
 namespace Ui {
 class MainWindow;
 }
+class Keyboard;
 
 class MainWindow : public QMainWindow
 {
@@ -26,6 +27,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Cell *cell[BOARD_SIZE * BOARD_SIZE];
+    Keyboard *keyboard;
     QIcon icon1;
     char selectedNumber;
     void initBoard();

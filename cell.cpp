@@ -1,5 +1,6 @@
 #include "cell.h"
 #include "QPushButton"
+#include "keyboard.h"
 
 
 Cell::Cell(QWidget *parent) :
@@ -17,6 +18,19 @@ Cell::Cell(QWidget *parent) :
     this->setIconSize(QSize(30, 30));
     this->backgroundRole();    
     this->setFlat(true);
+
+    connect(this, &Cell::clicked, this, &Cell::activateKeyboard);
 }
 
+void Cell::setKeyboard(Keyboard *keyboard)
+{
+    this->keyboard = keyboard;
+}
+
+void Cell::activateKeyboard()
+{
+    Cell *cell = (Cell *) sender();
+
+    keyboard->move(cell->pos());
+}
 

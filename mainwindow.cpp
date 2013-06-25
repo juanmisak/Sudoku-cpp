@@ -3,6 +3,7 @@
 
 #include <QGridLayout>
 #include <QPushButton>
+#include "keyboard.h"
 
 
 #include <QDebug>
@@ -32,10 +33,13 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete keyboard;
 }
 
 void MainWindow::initBoard()
 {
+    keyboard = new Keyboard( ui->centralWidget );
+
     for ( int x = 0; x < BOARD_SIZE; x++ ){
       for( int y = 0; y < BOARD_SIZE; y++ ){
         cell[x+y] = new Cell();
@@ -45,6 +49,7 @@ void MainWindow::initBoard()
         ui->board->addWidget( cell[x+y], x, y);
         //connect(cell[x+y],SIGNAL(clicked()) , this, SLOT(celda_clicked()));
         connect(cell[x+y],&Cell::clicked , this, &MainWindow::celda_clicked);
+        cell[x+y]->setKeyboard(keyboard);
       }
     }
     connect(ui->pushButton1, &QPushButton::clicked, this, &MainWindow::number_clicked);
