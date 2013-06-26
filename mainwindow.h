@@ -3,8 +3,7 @@
 
 #include <QMainWindow>
 #include "cell.h"
-#define BOARD_SIZE 9
-
+#include "sudoku.h"
 
 namespace Ui {
 class MainWindow;

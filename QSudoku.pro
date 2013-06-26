@@ -17,13 +17,15 @@ SOURCES += main.cpp\
     cell.cpp \
     home.cpp \
     developer.cpp \
-    keyboard.cpp
+    keyboard.cpp \
+    sudoku.cpp
 
 HEADERS  += mainwindow.h \
     cell.h \
     home.h \
     developer.h \
-    keyboard.h
+    keyboard.h \
+    sudoku.h
 
 FORMS    += mainwindow.ui \
     home.ui \
