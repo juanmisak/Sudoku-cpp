@@ -23,6 +23,7 @@ private slots:
     void on_actionSalir_triggered();
     void celda_clicked();
     void number_clicked();
+    void validate();
 
 private:
     Ui::MainWindow *ui;

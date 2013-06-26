@@ -6,6 +6,7 @@
 #include "keyboard.h"
 #include <QMessageBox>
 
+#include "cell.h"
 
 #include <QDebug>
 
@@ -37,7 +38,7 @@ MainWindow::~MainWindow()
     delete keyboard;
 }
 
-void ValidaTablero(){
+void MainWindow::validate(){
 int sumTotal=0,multTotal=1,contColumna=0,multCol=1,contFila =0,multFila=1;
 QMessageBox mensaje;
 for ( int x = 0; x < BOARD_SIZE; x++ ){ //valida columnas
@@ -45,8 +46,8 @@ for ( int x = 0; x < BOARD_SIZE; x++ ){ //valida columnas
     contColumna=0,multCol=1;
     for( int z = 0; z < BOARD_SIZE; z++){
     n=x+(9*z);
-    contColumna=contColumna+Integer.parseInt(Cell[n]);
-    multCol=multCol*Integer.parseInt(Cell[n]);
+    contColumna=contColumna+cell[n]->text().toInt();
+    multCol=multCol*cell[n]->text().toInt();
     if(contColumna!=45 && multCol!=362880){
         mensaje.setText("Error en la columna "+x);
         mensaje.exec();}}
@@ -56,8 +57,8 @@ for ( int x = 0; x < BOARD_SIZE; x++ ){ //valida columnas
       contFila =0,multFila=1;
       for( int z = 0; z < BOARD_SIZE; z++){
       n=z+(9*y);
-      contFila=contFila+Integer.parseInt(Cell[n]);
-      multFila=multFila+Integer.parseInt(Cell[n]);
+      contFila=contFila+cell[n]->text().toInt();
+      multFila=multFila+cell[n]->text().toInt();
       if(contFila!=45 && multFila!=362880){
           mensaje.setText("Error en la fila "+y);
           mensaje.exec();}}
