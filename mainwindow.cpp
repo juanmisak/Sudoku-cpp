@@ -4,6 +4,7 @@
 #include <QGridLayout>
 #include <QPushButton>
 #include "keyboard.h"
+#include <QMessageBox>
 
 
 #include <QDebug>
@@ -34,6 +35,37 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete keyboard;
+}
+
+void ValidaTablero(){
+int sumTotal=0,multTotal=1,contColumna=0,multCol=1,contFila =0,multFila=1;
+QMessageBox mensaje;
+for ( int x = 0; x < BOARD_SIZE; x++ ){ //valida columnas
+    int n=0;
+    contColumna=0,multCol=1;
+    for( int z = 0; z < BOARD_SIZE; z++){
+    n=x+(9*z);
+    contColumna=contColumna+Integer.parseInt(Cell[n]);
+    multCol=multCol*Integer.parseInt(Cell[n]);
+    if(contColumna!=45 && multCol!=362880){
+        mensaje.setText("Error en la columna "+x);
+        mensaje.exec();}}
+}
+  for( int y = 0; y < BOARD_SIZE; y++){ //valida las filas
+      int n=0;
+      contFila =0,multFila=1;
+      for( int z = 0; z < BOARD_SIZE; z++){
+      n=z+(9*y);
+      contFila=contFila+Integer.parseInt(Cell[n]);
+      multFila=multFila+Integer.parseInt(Cell[n]);
+      if(contFila!=45 && multFila!=362880){
+          mensaje.setText("Error en la fila "+y);
+          mensaje.exec();}}
+  }
+  sumTotal=sumTotal+contFila;       //valida todo el tablero
+  if(multTotal==3265920&& sumTotal==405)
+      mensaje.setText("tablero válido");
+      mensaje.exec();
 }
 
 void MainWindow::initBoard()
