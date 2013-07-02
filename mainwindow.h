@@ -30,7 +30,7 @@ public:
       * Una descripción más elaborada del destructor.
       */
     ~MainWindow();
-
+    int dificultad;
 private slots:
     void on_actionSalir_triggered();
     void celda_clicked();

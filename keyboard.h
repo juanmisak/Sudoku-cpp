@@ -1,6 +1,6 @@
 #ifndef KEYBOARD_H
 #define KEYBOARD_H
-
+#include <QIcon>
 #include <QWidget>
 
 class QGridLayout;
@@ -20,8 +20,10 @@ private slots:
     void selectNumber();
 
 private:
+    QIcon icon1;
     QGridLayout *keyboard;
     QPushButton *numbers[10];
+    QIcon setIcon(int numero);
 };
 
 #endif // KEYBOARD_H
