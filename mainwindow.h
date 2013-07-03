@@ -24,6 +24,8 @@ private slots:
     void number_clicked();
     void validate();
 
+    void on_lcdNumber_overflow();
+
 private:
     Ui::MainWindow *ui;
     Cell *cell[BOARD_SIZE * BOARD_SIZE];

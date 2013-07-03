@@ -2,7 +2,7 @@
 #include "mainwindow.h"
 #include "ui_home.h"
 #include "developer.h"
-
+#include "estadistic.h"
 Home::Home(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Home)
@@ -31,4 +31,14 @@ void Home::on_pushButton_4_clicked()
     d->setVisible(true);
     this->close();
 
+}
+
+
+
+void Home::on_pushButton_2_clicked()
+{
+    Estadistic *d;
+    d = new Estadistic();
+    d->setVisible(true);
+    this->close();
 }

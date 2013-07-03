@@ -38,7 +38,6 @@ Keyboard::Keyboard(QWidget *parent) :
         keyboard->addWidget( numbers[i], 3-(i+2)/3, (i+2)%3 );
     }
 }
-
 Keyboard::~Keyboard()
 {
     for ( int i = 0; i < 10; i++)

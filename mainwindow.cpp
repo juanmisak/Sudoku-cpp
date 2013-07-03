@@ -157,3 +157,5 @@ void MainWindow::number_clicked()
     else if (button == ui->pushButton9)
         selectedNumber = '9';*/
 }
+
+

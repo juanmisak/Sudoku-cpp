@@ -18,18 +18,21 @@ SOURCES += main.cpp\
     home.cpp \
     developer.cpp \
     keyboard.cpp \
-    sudoku.cpp
+    sudoku.cpp \
+    estadistic.cpp
 
 HEADERS  += mainwindow.h \
     cell.h \
     home.h \
     developer.h \
     keyboard.h \
-    sudoku.h
+    sudoku.h \
+    estadistic.h
 
 FORMS    += mainwindow.ui \
     home.ui \
-    developer.ui
+    developer.ui \
+    estadistic.ui
 
 RESOURCES += \
     Resources.qrc
