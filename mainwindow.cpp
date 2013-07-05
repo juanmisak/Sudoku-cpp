@@ -81,6 +81,7 @@ void MainWindow::initBoard()
         ui->board->addWidget( cell[x+y], x, y);
         //connect(cell[x+y],SIGNAL(clicked()) , this, SLOT(celda_clicked()));
         connect(cell[x+y],&Cell::clicked , this, &MainWindow::celda_clicked);
+        connect(cell[x+y], &QPushButton::clicked, keyboard, &Keyboard::activate);
         cell[x+y]->setKeyboard(keyboard);
       }
     }
@@ -135,5 +136,3 @@ void MainWindow::number_clicked()
         else if (button == ui->pushButton9)
             icon1.addFile(QStringLiteral(":/images/Numbers-9.ico"), QSize(), QIcon::Normal, QIcon::Off);
 }
-
-

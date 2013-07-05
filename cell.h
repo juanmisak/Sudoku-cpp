@@ -19,17 +19,19 @@ public:
         */
     explicit Cell(QWidget *parent = 0);
     void setKeyboard(Keyboard *keyboard);
+    int getValue();
 
 signals:
+    void valueChanged(int value);
     
 public slots:
+    void setValue(int value);
 
 private slots:
-    void activateKeyboard();
 
 private:
     Keyboard *keyboard;
-
+    int value;
 };
 
 #endif // CELL_H

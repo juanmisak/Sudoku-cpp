@@ -1,28 +1,27 @@
 #include "keyboard.h"
+#include "cell.h"
 
 #include <QGridLayout>
-#include <QPushButton>
 #include <QIcon>
-#include <QDebug>
 
 Keyboard::Keyboard(QWidget *parent) :
-    QWidget(parent)
+    QWidget(parent, Qt::Popup)
 {
-    setFixedHeight(200);
+    setFixedHeight(150);
     setFixedWidth(150);
-    move(0, 0);
 
     keyboard = new QGridLayout(this);
     keyboard->setSpacing(1);
 
 
-    for ( int i = 0; i < 9; i++)
+    for ( int i = 1; i <= 10; i++)
     {
         numbers[i] = new QPushButton( );
-        //numbers[i]->setFlat(true);
-        QIcon icono = setIcon(i);
-        numbers[i]->setIcon(icono);
-        numbers[i]->setIconSize(QSize(20, 20));
+        numbers[i]->setFlat(true);
+        numbers[i]->setText(QString::number(i));
+        //QIcon icono = setIcon(i);
+        //numbers[i]->setIcon(icono);
+        //numbers[i]->setIconSize(QSize(20, 20));
         connect(numbers[i], &QPushButton::clicked, this, &Keyboard::selectNumber);
 
         /*
@@ -42,6 +41,7 @@ Keyboard::Keyboard(QWidget *parent) :
         keyboard->addWidget( numbers[i], 3-(i+2)/3, (i+2)%3 );
     }
 }
+
 Keyboard::~Keyboard()
 {
     for ( int i = 0; i < 10; i++)
@@ -90,5 +90,23 @@ void Keyboard::selectNumber()
 {
     QPushButton *button = (QPushButton *) sender();
 
+    if (!button || !attachedCell) return;
+
+    hide();
+
     emit numberSelected( button->text().toInt() );
+    disconnect(this, &Keyboard::numberSelected, attachedCell, &Cell::setValue);
+}
+
+void Keyboard::activate()
+{
+    Cell *cell = (Cell *) sender();
+
+    if (cell != 0)
+    {
+        this->move(cell->pos());
+        connect(this, &Keyboard::numberSelected, cell, &Cell::setValue);
+        attachedCell = cell;
+        show();
+    }
 }

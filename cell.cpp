@@ -12,25 +12,31 @@ Cell::Cell(QWidget *parent) :
           font1.setBold(false);
           font1.setWeight(50);
           this->setFont(font1);
-    QIcon icon1;
-           icon1.addFile(QStringLiteral(":/images/Mysitemyway-Blue-Jeans-Social-Media-Delicious-square.ico"), QSize(), QIcon::Normal, QIcon::Off);
-    this->setIcon(icon1);
-    this->setIconSize(QSize(30, 30));
+    //QIcon icon1;
+    //       icon1.addFile(QStringLiteral(":/images/Mysitemyway-Blue-Jeans-Social-Media-Delicious-square.ico"), QSize(), QIcon::Normal, QIcon::Off);
+    //this->setIcon(icon1);
+    //this->setIconSize(QSize(30, 30));
     this->backgroundRole();    
     this->setFlat(true);
-
-    connect(this, &Cell::clicked, this, &Cell::activateKeyboard);
 }
 
 void Cell::setKeyboard(Keyboard *keyboard)
 {
     this->keyboard = keyboard;
+    connect(this, &Cell::clicked, keyboard, &Keyboard::activate);
 }
 
-void Cell::activateKeyboard()
+void Cell::setValue(int value)
 {
-    Cell *cell = (Cell *) sender();
-
-    keyboard->move(cell->pos());
+    if (this->value != value)
+    {
+        this->value = value;
+        this->setText(QString::number(value));
+        emit valueChanged(value);
+    }
 }
 
+int Cell::getValue()
+{
+    return this->value;
+}
