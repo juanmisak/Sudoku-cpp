@@ -76,7 +76,6 @@ void MainWindow::initBoard()
     for ( int x = 0; x < BOARD_SIZE; x++ ){
       for( int y = 0; y < BOARD_SIZE; y++ ){
         cell[x+y] = new Cell();
-
         if (((y+1) % 3 == 0)&&((y+1)!= 9))
             cell[x+y]->setText("||");
         ui->board->addWidget( cell[x+y], x, y);
@@ -117,8 +116,6 @@ void MainWindow::celda_clicked()
 void MainWindow::number_clicked()
 {
     QPushButton *button = (QPushButton *) sender();
-
-
         if (button == ui->pushButton1)
             icon1.addFile(QStringLiteral(":/images/Numbers-1.ico"), QSize(), QIcon::Normal, QIcon::Off);
         else if (button == ui->pushButton2)
@@ -137,25 +134,6 @@ void MainWindow::number_clicked()
             icon1.addFile(QStringLiteral(":/images/Numbers-8.ico"), QSize(), QIcon::Normal, QIcon::Off);
         else if (button == ui->pushButton9)
             icon1.addFile(QStringLiteral(":/images/Numbers-9.ico"), QSize(), QIcon::Normal, QIcon::Off);
-/*
-    if (button == ui->pushButton1)
-        selectedNumber = '1';
-    else if (button == ui->pushButton2)
-        selectedNumber = '2';
-    else if (button == ui->pushButton3)
-        selectedNumber = '3';
-    else if (button == ui->pushButton4)
-        selectedNumber = '4';
-    else if (button == ui->pushButton5)
-        selectedNumber = '5';
-    else if (button == ui->pushButton6)
-        selectedNumber = '6';
-    else if (button == ui->pushButton7)
-        selectedNumber = '7';
-    else if (button == ui->pushButton8)
-        selectedNumber = '8';
-    else if (button == ui->pushButton9)
-        selectedNumber = '9';*/
 }
 
 

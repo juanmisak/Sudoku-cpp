@@ -6,12 +6,20 @@
 namespace Ui {
 class Developer;
 }
-
+/**
+ * La clase Developer representa un Widget para los desarrolladores.
+ * @author Juan Mite
+ */
 class Developer : public QDialog
 {
     Q_OBJECT
     
 public:
+/**
+ * Un constructor.
+ * @param parent un argumento QWidget .
+ * Una descripción más elaborada del constructor.
+*/
     explicit Developer(QWidget *parent = 0);
     ~Developer();
     

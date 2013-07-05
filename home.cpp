@@ -2,7 +2,9 @@
 #include "mainwindow.h"
 #include "ui_home.h"
 #include "developer.h"
-#include "estadistic.h"
+#include "estadistica.h"
+#include <QMessageBox>
+
 Home::Home(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Home)
@@ -17,10 +19,36 @@ Home::~Home()
 
 void Home::on_pushButton_3_clicked()
 {
-    MainWindow *w;
-    w = new MainWindow();
-    this->setVisible(false);
-    w->show();
+
+
+    MainWindow *w; //Refetencia a la ventana que presenta la tabla sudoku
+       QMessageBox msgBox;
+       w = new MainWindow();
+       bool noChenck = ui->radioButtonDificil->isChecked() | ui->radioButtonIntermedio->isChecked() | ui->radioButtonFacil->isChecked();
+       if(noChenck == false){
+            msgBox.setText("Seleccione un nivel de dificultad");
+            msgBox.exec();
+       }
+       else if (ui->radioButtonDificil->isChecked()){
+           this->setVisible(false);
+           w->show();
+           w->dificultad=3;
+           msgBox.setText("Nivel Dificil");
+           msgBox.exec();
+       }
+       else if (ui->radioButtonIntermedio->isChecked()){
+           this->setVisible(false);
+           w->show();
+           w->dificultad=2;
+           msgBox.setText("Nivel intermedio");
+           msgBox.exec();
+       }else{
+           this->setVisible(false);
+           w->show();
+           w->dificultad=1;
+           msgBox.setText("Nivel facil");
+           msgBox.exec();
+       }
 
 }
 
@@ -37,8 +65,8 @@ void Home::on_pushButton_4_clicked()
 
 void Home::on_pushButton_2_clicked()
 {
-    Estadistic *d;
-    d = new Estadistic();
+    Estadistica *d;
+    d = new Estadistica();
     d->setVisible(true);
     this->close();
 }

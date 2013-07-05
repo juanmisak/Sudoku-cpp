@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     developer.cpp \
     keyboard.cpp \
     sudoku.cpp \
-    estadistic.cpp
+    saver.cpp \
+    estadistica.cpp
 
 HEADERS  += mainwindow.h \
     cell.h \
@@ -27,12 +28,13 @@ HEADERS  += mainwindow.h \
     developer.h \
     keyboard.h \
     sudoku.h \
-    estadistic.h
+    saver.h \
+    estadistica.h
 
 FORMS    += mainwindow.ui \
     home.ui \
     developer.ui \
-    estadistic.ui
+    estadistica.ui
 
 RESOURCES += \
     Resources.qrc
