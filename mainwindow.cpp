@@ -81,7 +81,7 @@ void MainWindow::initBoard()
         ui->board->addWidget( cell[x+y], x, y);
         //connect(cell[x+y],SIGNAL(clicked()) , this, SLOT(celda_clicked()));
         connect(cell[x+y],&Cell::clicked , this, &MainWindow::celda_clicked);
-        connect(cell[x+y], &QPushButton::clicked, keyboard, &Keyboard::activate);
+        connect(cell[x+y], &Cell::clicked, keyboard, &Keyboard::show);
         cell[x+y]->setKeyboard(keyboard);
       }
     }
@@ -110,7 +110,7 @@ void MainWindow::celda_clicked()
     // Get input number
     Cell *cell = (Cell *) sender();
    //cell->setText(QString(selectedNumber));
-    cell->setIcon(icon1);
+    //cell->setIcon(icon1);
 
 }
 
