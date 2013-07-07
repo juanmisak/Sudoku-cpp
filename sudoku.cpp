@@ -2,6 +2,7 @@
 
 #include <cstdlib>
 #include <ctime>
+#include <QMessageBox>
 
 Sudoku::Sudoku(QObject *parent) :
     QObject(parent)
@@ -86,7 +87,39 @@ void Sudoku::swapColumn(int i, int j)
 
 bool Sudoku::validate()
 {
-    return true;
+    int sumTotal=0,multTotal=1,contColumna=0,multCol=1,contFila =0,multFila=1;
+    QMessageBox mensaje;
+    for ( int x = 0; x < BOARD_SIZE; x++ ){ //valida columnas
+        int n=0;
+        contColumna=0,multCol=1;
+        for( int z = 0; z < BOARD_SIZE; z++){
+        n=x+(9*z);
+        contColumna=contColumna+cell[n];
+        multCol=multCol*cell[n];
+        if(contColumna!=45 && multCol!=362880){
+            mensaje.setText("Error en la columna "+x);
+            mensaje.exec();
+            return false;
+        }}
+    }
+      for( int y = 0; y < BOARD_SIZE; y++){ //valida las filas
+          int n=0;
+          contFila =0,multFila=1;
+          for( int z = 0; z < BOARD_SIZE; z++){
+          n=z+(9*y);
+          contFila=contFila+cell[n];
+          multFila=multFila+cell[n];
+          if(contFila!=45 && multFila!=362880){
+              mensaje.setText("Error en la fila "+y);
+              mensaje.exec();
+              return false;
+          }}
+      }
+      sumTotal=sumTotal+contFila;       //valida todo el tablero
+      if(multTotal==3265920&& sumTotal==405){
+          mensaje.setText("tablero válido");
+          mensaje.exec();
+          return true;}
 }
 
 void Sudoku::badCells(int cells[])

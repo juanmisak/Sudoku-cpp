@@ -4,7 +4,7 @@
 #include <QGridLayout>
 #include <QPushButton>
 #include "keyboard.h"
-#include <QMessageBox>
+
 
 #include "cell.h"
 
@@ -38,36 +38,6 @@ MainWindow::~MainWindow()
     delete keyboard;
 }
 
-void MainWindow::validate(){
-int sumTotal=0,multTotal=1,contColumna=0,multCol=1,contFila =0,multFila=1;
-QMessageBox mensaje;
-for ( int x = 0; x < BOARD_SIZE; x++ ){ //valida columnas
-    int n=0;
-    contColumna=0,multCol=1;
-    for( int z = 0; z < BOARD_SIZE; z++){
-    n=x+(9*z);
-    contColumna=contColumna+cell[n]->text().toInt();
-    multCol=multCol*cell[n]->text().toInt();
-    if(contColumna!=45 && multCol!=362880){
-        mensaje.setText("Error en la columna "+x);
-        mensaje.exec();}}
-}
-  for( int y = 0; y < BOARD_SIZE; y++){ //valida las filas
-      int n=0;
-      contFila =0,multFila=1;
-      for( int z = 0; z < BOARD_SIZE; z++){
-      n=z+(9*y);
-      contFila=contFila+cell[n]->text().toInt();
-      multFila=multFila+cell[n]->text().toInt();
-      if(contFila!=45 && multFila!=362880){
-          mensaje.setText("Error en la fila "+y);
-          mensaje.exec();}}
-  }
-  sumTotal=sumTotal+contFila;       //valida todo el tablero
-  if(multTotal==3265920&& sumTotal==405)
-      mensaje.setText("tablero válido");
-      mensaje.exec();
-}
 
 void MainWindow::initBoard()
 {
@@ -135,4 +105,9 @@ void MainWindow::number_clicked()
             icon1.addFile(QStringLiteral(":/images/Numbers-8.ico"), QSize(), QIcon::Normal, QIcon::Off);
         else if (button == ui->pushButton9)
             icon1.addFile(QStringLiteral(":/images/Numbers-9.ico"), QSize(), QIcon::Normal, QIcon::Off);
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+
 }

@@ -35,7 +35,8 @@ private slots:
     void on_actionSalir_triggered();
     void celda_clicked();
     void number_clicked();
-    void validate();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
