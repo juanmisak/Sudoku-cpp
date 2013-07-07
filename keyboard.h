@@ -2,10 +2,10 @@
 #define KEYBOARD_H
 #include <QIcon>
 #include <QWidget>
+#include "cell.h"
 
 class QGridLayout;
 class QPushButton;
-class Cell;
 
 class Keyboard : public QWidget
 {
@@ -16,12 +16,15 @@ public:
     
 signals:
     void numberSelected(int number);
+    void modeChanged(Cell::Mode);
 
 public slots:
     void activate();
 
 private slots:
     void selectNumber();
+    void setModeToFinal();
+    void setModeToAnnotation();
 
 private:
     QIcon icon1;

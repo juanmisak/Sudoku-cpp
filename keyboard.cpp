@@ -2,12 +2,14 @@
 #include "cell.h"
 
 #include <QGridLayout>
+#include <QPushButton>
 #include <QIcon>
 
 Keyboard::Keyboard(QWidget *parent) :
-    QWidget(parent, Qt::Popup)
+    QWidget(parent, Qt::Popup),
+    attachedCell(NULL)
 {
-    setFixedHeight(150);
+    setFixedHeight(200);
     setFixedWidth(150);
 
     keyboard = new QGridLayout(this);
@@ -16,7 +18,7 @@ Keyboard::Keyboard(QWidget *parent) :
 
     for ( int i = 1; i <= 10; i++)
     {
-        numbers[i] = new QPushButton( );
+        numbers[i] = new QPushButton();
         numbers[i]->setFlat(true);
         numbers[i]->setText(QString::number(i));
         //QIcon icono = setIcon(i);
@@ -40,12 +42,21 @@ Keyboard::Keyboard(QWidget *parent) :
          */
         keyboard->addWidget( numbers[i], 3-(i+2)/3, (i+2)%3 );
     }
+
+    QPushButton *setFinalMode = new QPushButton("F");
+    connect(setFinalMode, &QPushButton::clicked, this, &Keyboard::setModeToFinal);
+    keyboard->addWidget(setFinalMode, 3, 0);
+
+    QPushButton *setAnnotationMode = new QPushButton("A");
+    connect(setAnnotationMode, &QPushButton::clicked, this, &Keyboard::setModeToAnnotation);
+    keyboard->addWidget(setAnnotationMode, 3, 1);
+
 }
 
 Keyboard::~Keyboard()
 {
-    for ( int i = 0; i < 10; i++)
-        delete numbers[i];
+    // for ( int i = 0; i < 10; i++)
+    //    delete numbers[i];
 
     delete keyboard;
 }
@@ -95,7 +106,16 @@ void Keyboard::selectNumber()
     hide();
 
     emit numberSelected( button->text().toInt() );
-    disconnect(this, &Keyboard::numberSelected, attachedCell, &Cell::setValue);
+}
+
+void Keyboard::setModeToFinal()
+{
+    emit modeChanged(Cell::Final);
+}
+
+void Keyboard::setModeToAnnotation()
+{
+    emit modeChanged(Cell::Annotation);
 }
 
 void Keyboard::activate()
@@ -104,8 +124,16 @@ void Keyboard::activate()
 
     if (cell != 0)
     {
+        // Disconnect any previous attached cell
+        if (attachedCell)
+        {
+            disconnect(this, &Keyboard::numberSelected, attachedCell, &Cell::setValue);
+            disconnect(this, &Keyboard::modeChanged, attachedCell, &Cell::setMode);
+        }
+
         this->move(cell->pos());
         connect(this, &Keyboard::numberSelected, cell, &Cell::setValue);
+        connect(this, &Keyboard::modeChanged, cell, &Cell::setMode);
         attachedCell = cell;
         show();
     }
