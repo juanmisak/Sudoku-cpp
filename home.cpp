@@ -26,8 +26,12 @@ void Home::on_pushButton_3_clicked()
        w = new MainWindow();
        bool noChenck = ui->radioButtonDificil->isChecked() | ui->radioButtonIntermedio->isChecked() | ui->radioButtonFacil->isChecked();
        if(noChenck == false){
-            msgBox.setText("Seleccione un nivel de dificultad");
-            msgBox.exec();
+           this->setVisible(false);
+           w->show();
+           w->dificultad=1;
+           msgBox.setText("Nivel facil, por defecto ;)");
+           msgBox.setAutoFillBackground(false);
+           msgBox.exec();
        }
        else if (ui->radioButtonDificil->isChecked()){
            this->setVisible(false);
