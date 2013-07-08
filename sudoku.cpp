@@ -2,7 +2,8 @@
 
 #include <cstdlib>
 #include <ctime>
-#include <QMessageBox>
+
+#include <QDebug>
 
 Sudoku::Sudoku(QObject *parent) :
     QObject(parent)
@@ -12,15 +13,15 @@ Sudoku::Sudoku(QObject *parent) :
 void Sudoku::generate(int empty)
 {
     static int preboard[] = {
-        3,2,9,6,5,7,8,4,1,
-        7,4,5,8,3,1,2,9,6,
-        6,1,8,2,4,9,3,7,5,
-        1,9,3,4,6,8,5,2,7,
-        2,7,6,1,9,5,4,8,3,
-        8,5,4,3,7,1,6,1,9,
-        4,3,2,7,1,6,9,5,8,
-        5,8,7,9,3,2,1,6,4,
-        9,6,1,5,8,4,7,3,2
+        5,3,4,6,7,8,9,1,2,
+        6,7,2,1,9,5,3,4,8,
+        1,9,8,3,4,2,5,6,7,
+        8,5,9,7,6,1,4,2,3,
+        4,2,6,8,5,3,7,9,1,
+        7,1,3,9,2,4,8,5,6,
+        9,6,1,5,3,7,2,8,4,
+        2,8,7,4,1,9,6,3,5,
+        3,4,5,2,8,6,1,7,9,
     };
 
     srand(time(NULL));
@@ -92,39 +93,37 @@ void Sudoku::swapColumn(int i, int j)
 
 bool Sudoku::validate()
 {
-    int sumTotal=0,multTotal=1,contColumna=0,multCol=1,contFila =0,multFila=1;
-    QMessageBox mensaje;
-    for ( int x = 0; x < BOARD_SIZE; x++ ){ //valida columnas
-        int n=0;
-        contColumna=0,multCol=1;
-        for( int z = 0; z < BOARD_SIZE; z++){
-        n=x+(9*z);
-        contColumna=contColumna+cell[n];
-        multCol=multCol*cell[n];
-        if(contColumna!=45 && multCol!=362880){
-            mensaje.setText("Error en la columna "+x);
-            mensaje.exec();
+    int i, sum = 0, mul = 1;
+
+    // validate columns
+    for ( int x = 0; x < BOARD_SIZE; x++ ) {
+
+        sum = 0; mul = 1;
+        for ( int y = 0; y < BOARD_SIZE; y++) {
+            i = x + BOARD_SIZE*y;
+            sum += cell[i];
+            mul *= cell[i];
+        }
+
+        if (sum != 45 || mul != 362880)
             return false;
-        }}
     }
-      for( int y = 0; y < BOARD_SIZE; y++){ //valida las filas
-          int n=0;
-          contFila =0,multFila=1;
-          for( int z = 0; z < BOARD_SIZE; z++){
-          n=z+(9*y);
-          contFila=contFila+cell[n];
-          multFila=multFila+cell[n];
-          if(contFila!=45 && multFila!=362880){
-              mensaje.setText("Error en la fila "+y);
-              mensaje.exec();
-              return false;
-          }}
-      }
-      sumTotal=sumTotal+contFila;       //valida todo el tablero
-      if(multTotal==3265920&& sumTotal==405){
-          mensaje.setText("tablero válido");
-          mensaje.exec();
-          return true;}
+
+    // validate rows
+    for( int y = 0; y < BOARD_SIZE; y++) {
+
+        sum = 0; mul = 1;
+        for( int x = 0; x < BOARD_SIZE; x++){
+            i = x + 9*y;
+            sum += cell[i];
+            mul *= cell[i];
+        }
+
+        if (sum != 45 || mul != 362880)
+            return false;
+    }
+
+    return true;
 }
 
 void Sudoku::badCells(int cells[])

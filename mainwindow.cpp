@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QGridLayout>
 #include <QPushButton>
+#include <QMessageBox>
 #include "keyboard.h"
 #include "cell.h"
 
@@ -53,7 +54,7 @@ void MainWindow::initBoard()
         if (((y+1) % 3 == 0)&&((y+1)!= 9))
             cell[i]->setText("||");
 
-        ui->board->addWidget( cell[i], x, y);
+        ui->board->addWidget( cell[i], y, x);
 
         connect(cell[i], &Cell::clicked , this, &MainWindow::celda_clicked);
         connect(cell[i], &Cell::clicked, keyboard, &Keyboard::show);
@@ -112,12 +113,15 @@ void MainWindow::number_clicked()
             icon1.addFile(QStringLiteral(":/images/Numbers-9.ico"), QSize(), QIcon::Normal, QIcon::Off);
 }
 
-void MainWindow::on_pushButton_clicked()
-{
-
-}
-
 void MainWindow::setCellValue(int index, int value)
 {
     cell[index]->setValue(value);
+}
+
+void MainWindow::on_finishButton_clicked()
+{
+    QMessageBox msj;
+
+    msj.setText( sudoku->validate() ? "Tablero válido" : "Tablaro NO válido" );
+    msj.exec();
 }

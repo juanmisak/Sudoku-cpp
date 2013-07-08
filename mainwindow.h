@@ -36,6 +36,7 @@ private slots:
     void celda_clicked();
     void number_clicked();
     void setCellValue(int index, int value);
+    void on_finishButton_clicked();
 
 private:
     Ui::MainWindow *ui;
