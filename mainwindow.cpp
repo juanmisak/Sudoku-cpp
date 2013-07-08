@@ -53,10 +53,10 @@ void MainWindow::initBoard()
         y = i / BOARD_SIZE;
         cell[i] = new Cell();
 
-        if (((y+1) % 3 == 0)&&((y+1)!= 9))
-            cell[i]->setText("||");
+        if ( (y % 3 == 0 && y != 0) || ( y == 0 && x % 3 == 0) )
+            cell[i]->set(true);
 
-        ui->board->addWidget( cell[i], y, x);
+        ui->board->addWidget(cell[i], y, x);
 
         connect(cell[i], &Cell::clicked , this, &MainWindow::celda_clicked);
         connect(cell[i], &Cell::clicked, keyboard, &Keyboard::show);
@@ -119,6 +119,7 @@ void MainWindow::number_clicked()
 void MainWindow::setCellValue(int index, int value)
 {
     cell[index]->setValue(value);
+    cell[index]->setDisabled(true);
 }
 
 

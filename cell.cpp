@@ -27,7 +27,7 @@ Cell::Cell(QWidget *parent) :
     connect(value, &QPushButton::clicked, this, &Cell::clicked);
 
     for (int i = 0; i < N_ANNOTATIONS; i++) {
-        annotations[i] = new QLabel("-");
+        annotations[i] = new QLabel("__");
     }
 
     layout = new QGridLayout(this);
