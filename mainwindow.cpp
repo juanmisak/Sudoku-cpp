@@ -1,14 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
 #include <QGridLayout>
 #include <QPushButton>
 #include "keyboard.h"
-
-
 #include "cell.h"
-
-#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -24,8 +19,6 @@ MainWindow::MainWindow(QWidget *parent) :
   * @param cell QTextEdit que trabaja como celda del tablero.
   * @see ui referencia a MainWindow
   */
-
-
 {
     ui->setupUi(this);
     initBoard();
@@ -37,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
     disconnect(sudoku, &Sudoku::cellChanged, this, &MainWindow::setCellValue);
 
 }
+
 /**
  * Destructor
  */
@@ -45,7 +39,6 @@ MainWindow::~MainWindow()
     delete ui;
     delete keyboard;
 }
-
 
 void MainWindow::initBoard()
 {

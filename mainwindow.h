@@ -35,8 +35,6 @@ private slots:
     void on_actionSalir_triggered();
     void celda_clicked();
     void number_clicked();
-
-    void on_pushButton_clicked();
     void setCellValue(int index, int value);
 
 private:
@@ -45,13 +43,11 @@ private:
     Sudoku *sudoku;
     Keyboard *keyboard;
     /**
-      * Una variable privada.
       * Permite utilizar un icono .
       */
     QIcon icon1;
     char selectedNumber;
     /**
-       * Una funcion mienbro.
        * Inicializa el tablero que se mostrara en el layout.
        */
     void initBoard();
