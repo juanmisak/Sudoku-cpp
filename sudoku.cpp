@@ -31,16 +31,17 @@ void Sudoku::generate(int empty)
         cell[i] = preboard[i];
 
     // Swap block rows and columns at most 10 times each
-    for(int swaps = 1; swaps <= 10; swaps++) {
+    for(int swaps = 1; swaps <= 30; swaps++) {
         // Randomize the rows/columns
-        int i = rand() % 3 + 1;
-        int j = rand() % 3 + 1;
+        int i = rand() % 3;
+        int j = rand() % 3;
+        int k = rand() % 3;
+        int l = rand() % 3;
 
-        if ( rand() % 2 )
-            swapRow(i, j);
-
-        if ( rand() % 2 )
-            swapColumn(i, j);
+        swapBigRow(i, j);
+        swapBigColumn(i, j);
+        swapRow(k, i, j);
+        swapColumn(l, i, j);
     }
 
     // Empty cells
@@ -61,34 +62,41 @@ void Sudoku::generate(int empty)
             emit cellChanged(i, cell[i]);
 }
 
-void Sudoku::swapRow(int i, int j)
+void Sudoku::swapBigRow(int i, int j)
 {
-    int temp, a, b;
-
-    for(int y = 1; y <= 3; y++)
+    for(int y = 0; y < 3; y++)
         for(int x = 0; x < BOARD_SIZE; x++)
-        {
-            a = x + i*y - 1;
-            b = x + j*y - 1;
-            temp = cell[a];
-            cell[a]  = cell[b];
-            cell[b] = temp;
-        }
+            swap(x, y+3*i, x, y+3*j);
 }
 
-void Sudoku::swapColumn(int i, int j)
+void Sudoku::swapBigColumn(int i, int j)
+{
+    for(int x = 0; x < 3; x++)
+        for(int y = 0; y < BOARD_SIZE; y++)
+            swap(x+3*i, y, x+3*j, y);
+}
+
+void Sudoku::swapRow(int bigRow, int i, int j)
+{
+    for(int x = 0; x < BOARD_SIZE; x++)
+        swap(x, 3*bigRow + i, x, 3*bigRow + j);
+}
+
+void Sudoku::swapColumn(int bigColumn, int i, int j)
+{
+    for(int y = 0; y < BOARD_SIZE; y++)
+        swap(3*bigColumn + i, y, 3*bigColumn + j, y);
+}
+
+inline void Sudoku::swap(int x1, int y1, int x2, int y2)
 {
     int temp, a, b;
 
-    for(int x = 1; x <= 3; x++)
-        for(int y = 0; y < BOARD_SIZE; y++)
-        {
-            a = i*x + y - 1;
-            b = j*x + y - 1;
-            temp = cell[a];
-            cell[a]  = cell[b];
-            cell[b] = temp;
-        }
+    a = x1 + y1*BOARD_SIZE;
+    b = x2 + y2*BOARD_SIZE;
+    temp = cell[a];
+    cell[a]  = cell[b];
+    cell[b] = temp;
 }
 
 bool Sudoku::validate()
@@ -114,7 +122,23 @@ bool Sudoku::validate()
 
         sum = 0; mul = 1;
         for( int x = 0; x < BOARD_SIZE; x++){
-            i = x + 9*y;
+            i = x + BOARD_SIZE*y;
+            sum += cell[i];
+            mul *= cell[i];
+        }
+
+        if (sum != 45 || mul != 362880)
+            return false;
+    }
+
+    for (int i = 0; i < BOARD_SIZE; i++) {
+
+        sum = 0; mul = 1;
+        for (int j = 0; j < BOARD_SIZE; j++) {
+            int x = ( j % 3 ) + ( (i*3) % 3 );
+            int y = ( j / 3 ) + ( (i/3) % 3 );
+
+            i = x + BOARD_SIZE*y;
             sum += cell[i];
             mul *= cell[i];
         }
