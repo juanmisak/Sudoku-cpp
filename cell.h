@@ -54,7 +54,6 @@ private:
     QLabel *annotations[N_ANNOTATIONS];
     int emptyAnnotation;
     QPushButton *value;
-
     Keyboard *keyboard;
 };
 

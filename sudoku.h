@@ -13,16 +13,21 @@ public:
     void generate(int empty);
     bool validate();
     void badCells(int cells[]);
+    void suggestedValues(int index, int suggestedCells[]);
+    int getCellValue(int index);
 
 signals:
+    void cellChanged(int index, int value);
     
 public slots:
-    void setCell(int value, int index);
-    void setCell(int value, int x, int y);
+    void setCellValue(int index, int value);
 
 private:
-    void swapRow(int i, int j);
-    void swapColumn(int i, int j);
+    void swapBigRow(int i, int j);
+    void swapBigColumn(int i, int j);
+    void swapRow(int bigRow, int i, int j);
+    void swapColumn(int bigColumn, int i, int j);
+    void swap(int x1, int y1, int x2, int y2);
 
     int cell[BOARD_SIZE * BOARD_SIZE];
 };

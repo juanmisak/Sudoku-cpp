@@ -717,6 +717,7 @@
      <bool>true</bool>
     </property>
    </widget>
+<<<<<<< HEAD
    <widget class="QLCDNumber" name="cronometroLcd">
     <property name="geometry">
      <rect>
@@ -726,6 +727,42 @@
       <height>23</height>
      </rect>
     </property>
+=======
+   <widget class="QPushButton" name="finishButton">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>460</y>
+      <width>161</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Courier New</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+      <underline>true</underline>
+     </font>
+    </property>
+    <property name="text">
+     <string>Terminé!</string>
+    </property>
+    <property name="icon">
+     <iconset resource="Resources.qrc">
+      <normaloff>:/images/Iconarchive-Red-Orb-Alphabet-Letter-S.ico</normaloff>:/images/Iconarchive-Red-Orb-Alphabet-Letter-S.ico</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>70</width>
+      <height>70</height>
+     </size>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+>>>>>>> 8a7aa006b7705dd9a0c6dab4cfb8eadad6409c0c
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">

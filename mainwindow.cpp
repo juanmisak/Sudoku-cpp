@@ -1,18 +1,19 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
 #include <QGridLayout>
 #include <QPushButton>
-#include "keyboard.h"
 #include <QMessageBox>
+<<<<<<< HEAD
 #include <QLCDNumber>
+=======
+#include "keyboard.h"
+>>>>>>> 8a7aa006b7705dd9a0c6dab4cfb8eadad6409c0c
 #include "cell.h"
-
-#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    dificultad(2)
  /**
   * Constructor
   * Se inicializa el constructor con 81 celdas que seran
@@ -23,12 +24,20 @@ MainWindow::MainWindow(QWidget *parent) :
   * @param cell QTextEdit que trabaja como celda del tablero.
   * @see ui referencia a MainWindow
   */
-
-
 {
     ui->setupUi(this);
     initBoard();
+
+    // Generate sudoku and make the board visible,
+    sudoku = new Sudoku();
+    connect(sudoku, &Sudoku::cellChanged, this, &MainWindow::setCellValue);
+    sudoku->generate(dificultad*BOARD_SIZE + 3*BOARD_SIZE);
+    disconnect(sudoku, &Sudoku::cellChanged, this, &MainWindow::setCellValue);
+
+    // Update the model when the view is changed
+    connect(this, &MainWindow::cellValueChanged, sudoku, &Sudoku::setCellValue);
 }
+
 /**
  * Destructor
  */
@@ -38,41 +47,11 @@ MainWindow::~MainWindow()
     delete keyboard;
 }
 
-void MainWindow::validate(){
-int sumTotal=0,multTotal=1,contColumna=0,multCol=1,contFila =0,multFila=1;
-QMessageBox mensaje;
-for ( int x = 0; x < BOARD_SIZE; x++ ){ //valida columnas
-    int n=0;
-    contColumna=0,multCol=1;
-    for( int z = 0; z < BOARD_SIZE; z++){
-    n=x+(9*z);
-    contColumna=contColumna+cell[n]->text().toInt();
-    multCol=multCol*cell[n]->text().toInt();
-    if(contColumna!=45 && multCol!=362880){
-        mensaje.setText("Error en la columna "+x);
-        mensaje.exec();}}
-}
-  for( int y = 0; y < BOARD_SIZE; y++){ //valida las filas
-      int n=0;
-      contFila =0,multFila=1;
-      for( int z = 0; z < BOARD_SIZE; z++){
-      n=z+(9*y);
-      contFila=contFila+cell[n]->text().toInt();
-      multFila=multFila+cell[n]->text().toInt();
-      if(contFila!=45 && multFila!=362880){
-          mensaje.setText("Error en la fila "+y);
-          mensaje.exec();}}
-  }
-  sumTotal=sumTotal+contFila;       //valida todo el tablero
-  if(multTotal==3265920&& sumTotal==405)
-      mensaje.setText("tablero válido");
-      mensaje.exec();
-}
-
 void MainWindow::initBoard()
 {
     keyboard = new Keyboard( ui->centralWidget );
 
+<<<<<<< HEAD
     for ( int x = 0; x < BOARD_SIZE; x++ ){
       for( int y = 0; y < BOARD_SIZE; y++ ){
         cell[x+y] = new Cell();
@@ -84,6 +63,24 @@ void MainWindow::initBoard()
         connect(cell[x+y], &Cell::clicked, keyboard, &Keyboard::show);
         cell[x+y]->setKeyboard(keyboard);
       }
+=======
+    int x, y;
+    for ( int i = 0; i < BOARD_SIZE*BOARD_SIZE; i++ ) {
+        x = i % BOARD_SIZE;
+        y = i / BOARD_SIZE;
+        cell[i] = new Cell();
+
+        if ( (y % 3 == 0 && y != 0) || ( y == 0 && x % 3 == 0) )
+            setVisible(true);
+
+        ui->board->addWidget(cell[i], y, x);
+
+        connect(cell[i], &Cell::clicked , this, &MainWindow::celda_clicked);
+        connect(cell[i], &Cell::clicked, keyboard, &Keyboard::show);
+        connect(cell[i], &Cell::valueChanged, this, &MainWindow::setCellValueFromView);
+
+        cell[i]->setKeyboard(keyboard);
+>>>>>>> 8a7aa006b7705dd9a0c6dab4cfb8eadad6409c0c
     }
     connect(ui->pushButton1, &QPushButton::clicked, this, &MainWindow::number_clicked);
     connect(ui->pushButton2, &QPushButton::clicked, this, &MainWindow::number_clicked);
@@ -128,4 +125,33 @@ void MainWindow::number_clicked()
             icon1.addFile(QStringLiteral(":/images/Numbers-9.ico"), QSize(), QIcon::Normal, QIcon::Off);
 }
 
+<<<<<<< HEAD
 
+=======
+void MainWindow::setCellValue(int index, int value)
+{
+    cell[index]->setValue(value);
+    cell[index]->setDisabled(true);
+}
+
+
+void MainWindow::setCellValueFromView(int value)
+{
+    Cell *c = (Cell *) sender();
+
+    int index = 0;
+    for ( ; index < BOARD_SIZE * BOARD_SIZE; index++)
+        if ( c == cell[index] )
+            break;
+
+    emit cellValueChanged(index, value);
+}
+
+void MainWindow::on_finishButton_clicked()
+{
+    QMessageBox msj;
+
+    msj.setText( sudoku->validate() ? "Tablero válido" : "Tablaro NO válido" );
+    msj.exec();
+}
+>>>>>>> 8a7aa006b7705dd9a0c6dab4cfb8eadad6409c0c

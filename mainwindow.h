@@ -32,25 +32,32 @@ public:
     ~MainWindow();
     int dificultad;
 
+<<<<<<< HEAD
+=======
+signals:
+    void cellValueChanged(int index, int value);
+
+>>>>>>> 8a7aa006b7705dd9a0c6dab4cfb8eadad6409c0c
 private slots:
     void on_actionSalir_triggered();
 
     void number_clicked();
-    void validate();
+    void setCellValue(int index, int value);
+    void setCellValueFromView(int value);
+    void on_finishButton_clicked();
 
 private:
     Ui::MainWindow *ui;
     Cell *cell[BOARD_SIZE * BOARD_SIZE];
+    Sudoku *sudoku;
     Keyboard *keyboard;
     /**
-      * Una variable privada.
       * Permite utilizar un icono .
       */
     QIcon icon1;
     char selectedNumber;
 
     /**
-       * Una funcion mienbro.
        * Inicializa el tablero que se mostrara en el layout.
        */
     void initBoard();
