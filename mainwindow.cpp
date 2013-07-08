@@ -5,7 +5,7 @@
 #include <QPushButton>
 #include "keyboard.h"
 #include <QMessageBox>
-
+#include <QLCDNumber>
 #include "cell.h"
 
 #include <QDebug>
@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
   * Constructor
   * Se inicializa el constructor con 81 celdas que seran
   * utilizadas como un tablero para el juego de QtSudoku v1.0.
-  * @author Ramón Carrillo & Juan Mite.
+  * @author Ramón Carrillo,Esteban Muñoz & Juan Mite.
   * @param x int que trabaja como fila.
   * @param y int que trabaja como columna.
   * @param cell QTextEdit que trabaja como celda del tablero.
@@ -80,7 +80,7 @@ void MainWindow::initBoard()
             cell[x+y]->setText("||");
         ui->board->addWidget( cell[x+y], x, y);
         //connect(cell[x+y],SIGNAL(clicked()) , this, SLOT(celda_clicked()));
-        connect(cell[x+y],&Cell::clicked , this, &MainWindow::celda_clicked);
+        //connect(cell[x+y],&Cell::clicked , this, &MainWindow::celda_clicked);
         connect(cell[x+y], &Cell::clicked, keyboard, &Keyboard::show);
         cell[x+y]->setKeyboard(keyboard);
       }
@@ -105,15 +105,6 @@ void MainWindow::on_actionSalir_triggered()
     qApp->quit();
 }
 
-void MainWindow::celda_clicked()
-{
-    // Get input number
-    Cell *cell = (Cell *) sender();
-   //cell->setText(QString(selectedNumber));
-    //cell->setIcon(icon1);
-
-}
-
 void MainWindow::number_clicked()
 {
     QPushButton *button = (QPushButton *) sender();
@@ -136,3 +127,5 @@ void MainWindow::number_clicked()
         else if (button == ui->pushButton9)
             icon1.addFile(QStringLiteral(":/images/Numbers-9.ico"), QSize(), QIcon::Normal, QIcon::Off);
 }
+
+

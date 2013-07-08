@@ -3,7 +3,12 @@
 #include <QFile>
 #include "sudoku.h"
 #include <cstdlib>
-
+/**
+ * La clase Saver representa un Objeto que permite crear un archivo txt
+ * del tablero que el jugador deseo guardar pero los valores que se guardan
+ * son almacenado con un tipo de incriptacion adecuada.
+ * @author Ramón Carrillo
+ */
 Saver::Saver(QObject *parent) :
     QObject(parent)
 {

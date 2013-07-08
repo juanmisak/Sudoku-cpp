@@ -4,7 +4,10 @@
 #include <QGridLayout>
 #include <QPushButton>
 #include <QLabel>
-
+/**
+ * La clase Cell representa las celdas del tablero QtSudoku.
+ * @author Ramón Carrillo, Esteban Muñoz
+ */
 Cell::Cell(QWidget *parent) :
     QWidget(parent),
     mode(Cell::Final),

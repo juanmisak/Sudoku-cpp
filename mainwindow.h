@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "cell.h"
 #include "sudoku.h"
-
+#include <QLCDNumber>
 namespace Ui {
 class MainWindow;
 }
@@ -31,9 +31,10 @@ public:
       */
     ~MainWindow();
     int dificultad;
+
 private slots:
     void on_actionSalir_triggered();
-    void celda_clicked();
+
     void number_clicked();
     void validate();
 
@@ -47,6 +48,7 @@ private:
       */
     QIcon icon1;
     char selectedNumber;
+
     /**
        * Una funcion mienbro.
        * Inicializa el tablero que se mostrara en el layout.

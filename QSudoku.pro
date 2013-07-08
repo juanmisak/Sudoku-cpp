@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     keyboard.cpp \
     sudoku.cpp \
     saver.cpp \
-    estadistica.cpp
+    estadistica.cpp \
+    timer.cpp
 
 HEADERS  += mainwindow.h \
     cell.h \
@@ -29,7 +30,8 @@ HEADERS  += mainwindow.h \
     keyboard.h \
     sudoku.h \
     saver.h \
-    estadistica.h
+    estadistica.h \
+    timer.h
 
 FORMS    += mainwindow.ui \
     home.ui \

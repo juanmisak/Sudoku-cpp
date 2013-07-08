@@ -1,7 +1,11 @@
 #include "estadistica.h"
 #include "ui_estadistica.h"
 #include "home.h"
-
+/**
+ * La clase Estadistica representa un Widget donde presenta
+ * las estadisticas de un jugador cualquiera.
+ * @author Juan Mite
+ */
 Estadistica::Estadistica(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Estadistica)

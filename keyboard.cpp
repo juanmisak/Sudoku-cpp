@@ -4,7 +4,12 @@
 #include <QGridLayout>
 #include <QPushButton>
 #include <QIcon>
-
+/**
+ * La clase Keyboard representa un Widget se presenta un tablero
+ * con los valores que el usuario puede ingresar en el tablero
+ * segun el numero que desee insertar.
+ * @author Ramón Carrillo
+ */
 Keyboard::Keyboard(QWidget *parent) :
     QWidget(parent, Qt::Popup),
     attachedCell(NULL)

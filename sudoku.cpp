@@ -2,7 +2,12 @@
 
 #include <cstdlib>
 #include <ctime>
-
+/**
+ * La clase Sudoku se la que se encarga de hacer las validaciones
+ * adecuadas que se implementan al momento de que un jugador hace
+ * algun tipo de insercion en la tabla de juego.
+ * @author Ramón Carrillo
+ */
 Sudoku::Sudoku(QObject *parent) :
     QObject(parent)
 {
