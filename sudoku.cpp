@@ -126,6 +126,49 @@ void Sudoku::badCells(int cells[])
 {
 }
 
+void Sudoku::suggestedValues(int index, int suggestedValues[])
+{
+    int x0 = index % BOARD_SIZE;
+    int y0 = index / BOARD_SIZE;
+
+    int i = 0;
+
+    /* Counter
+     * 0 have the number of 1's, 1 have the number of
+     * 2's... n have the number of n+1's in the board
+     */
+    int usedValues[BOARD_SIZE] = {0};
+
+    for (int x = 0; x < BOARD_SIZE; x++)
+        if (x != x0) {
+            i = cell[x + y0*BOARD_SIZE];
+            usedValues[i]++;
+        }
+
+    for (int y = 0; y < BOARD_SIZE; y++)
+        if (y != y0) {
+            i = cell[x0 + y*BOARD_SIZE];
+            usedValues[i]++;
+        }
+
+    i = cell[x0-1 + (y0-1)*BOARD_SIZE];
+    usedValues[i]++;
+    i = cell[x0+1 + (y0-1)*BOARD_SIZE];
+    usedValues[i]++;
+    i = cell[x0-1 + (y0+1)*BOARD_SIZE];
+    usedValues[i]++;
+    i = cell[x0+1 + (y0+1)*BOARD_SIZE];
+    usedValues[i]++;
+
+    i = 0;
+    for (int j = 0; j < BOARD_SIZE; j++) {
+        /* if there is no use of the number in the
+         * board then, suggest it */
+        if (usedValues[j] == 0)
+            suggestedValues[i++] = j+1;
+    }
+}
+
 void Sudoku::setCell(int value, int index)
 {
     cell[index] = value;

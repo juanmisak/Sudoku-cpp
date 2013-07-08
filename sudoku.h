@@ -13,6 +13,7 @@ public:
     void generate(int empty);
     bool validate();
     void badCells(int cells[]);
+    void suggestedValues(int index, int suggestedCells[]);
 
 signals:
     
