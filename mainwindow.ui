@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>559</width>
+    <width>797</width>
     <height>683</height>
    </rect>
   </property>
@@ -456,7 +456,7 @@
      <rect>
       <x>10</x>
       <y>540</y>
-      <width>541</width>
+      <width>716</width>
       <height>62</height>
      </rect>
     </property>
@@ -717,17 +717,6 @@
      <bool>true</bool>
     </property>
    </widget>
-<<<<<<< HEAD
-   <widget class="QLCDNumber" name="cronometroLcd">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>10</y>
-      <width>64</width>
-      <height>23</height>
-     </rect>
-    </property>
-=======
    <widget class="QPushButton" name="finishButton">
     <property name="geometry">
      <rect>
@@ -762,7 +751,6 @@
     <property name="flat">
      <bool>true</bool>
     </property>
->>>>>>> 8a7aa006b7705dd9a0c6dab4cfb8eadad6409c0c
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -770,8 +758,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>559</width>
-     <height>21</height>
+     <width>797</width>
+     <height>27</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSudoku">

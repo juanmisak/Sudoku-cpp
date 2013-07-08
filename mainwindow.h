@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include "cell.h"
 #include "sudoku.h"
-#include <QLCDNumber>
+
 namespace Ui {
 class MainWindow;
 }
@@ -32,15 +32,12 @@ public:
     ~MainWindow();
     int dificultad;
 
-<<<<<<< HEAD
-=======
 signals:
     void cellValueChanged(int index, int value);
 
->>>>>>> 8a7aa006b7705dd9a0c6dab4cfb8eadad6409c0c
 private slots:
     void on_actionSalir_triggered();
-
+    void celda_clicked();
     void number_clicked();
     void setCellValue(int index, int value);
     void setCellValueFromView(int value);
@@ -56,7 +53,6 @@ private:
       */
     QIcon icon1;
     char selectedNumber;
-
     /**
        * Inicializa el tablero que se mostrara en el layout.
        */

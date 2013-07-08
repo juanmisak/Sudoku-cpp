@@ -3,11 +3,7 @@
 #include <QGridLayout>
 #include <QPushButton>
 #include <QMessageBox>
-<<<<<<< HEAD
-#include <QLCDNumber>
-=======
 #include "keyboard.h"
->>>>>>> 8a7aa006b7705dd9a0c6dab4cfb8eadad6409c0c
 #include "cell.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -18,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
   * Constructor
   * Se inicializa el constructor con 81 celdas que seran
   * utilizadas como un tablero para el juego de QtSudoku v1.0.
-  * @author Ramón Carrillo,Esteban Muñoz & Juan Mite.
+  * @author Ramón Carrillo & Juan Mite.
   * @param x int que trabaja como fila.
   * @param y int que trabaja como columna.
   * @param cell QTextEdit que trabaja como celda del tablero.
@@ -51,19 +47,6 @@ void MainWindow::initBoard()
 {
     keyboard = new Keyboard( ui->centralWidget );
 
-<<<<<<< HEAD
-    for ( int x = 0; x < BOARD_SIZE; x++ ){
-      for( int y = 0; y < BOARD_SIZE; y++ ){
-        cell[x+y] = new Cell();
-        if (((y+1) % 3 == 0)&&((y+1)!= 9))
-            cell[x+y]->setText("||");
-        ui->board->addWidget( cell[x+y], x, y);
-        //connect(cell[x+y],SIGNAL(clicked()) , this, SLOT(celda_clicked()));
-        //connect(cell[x+y],&Cell::clicked , this, &MainWindow::celda_clicked);
-        connect(cell[x+y], &Cell::clicked, keyboard, &Keyboard::show);
-        cell[x+y]->setKeyboard(keyboard);
-      }
-=======
     int x, y;
     for ( int i = 0; i < BOARD_SIZE*BOARD_SIZE; i++ ) {
         x = i % BOARD_SIZE;
@@ -80,7 +63,6 @@ void MainWindow::initBoard()
         connect(cell[i], &Cell::valueChanged, this, &MainWindow::setCellValueFromView);
 
         cell[i]->setKeyboard(keyboard);
->>>>>>> 8a7aa006b7705dd9a0c6dab4cfb8eadad6409c0c
     }
     connect(ui->pushButton1, &QPushButton::clicked, this, &MainWindow::number_clicked);
     connect(ui->pushButton2, &QPushButton::clicked, this, &MainWindow::number_clicked);
@@ -100,6 +82,15 @@ void MainWindow::on_actionSalir_triggered()
  */
 {
     qApp->quit();
+}
+
+void MainWindow::celda_clicked()
+{
+    // Get input number
+    Cell *cell = (Cell *) sender();
+   //cell->setText(QString(selectedNumber));
+    //cell->setIcon(icon1);
+
 }
 
 void MainWindow::number_clicked()
@@ -125,9 +116,6 @@ void MainWindow::number_clicked()
             icon1.addFile(QStringLiteral(":/images/Numbers-9.ico"), QSize(), QIcon::Normal, QIcon::Off);
 }
 
-<<<<<<< HEAD
-
-=======
 void MainWindow::setCellValue(int index, int value)
 {
     cell[index]->setValue(value);
@@ -154,4 +142,3 @@ void MainWindow::on_finishButton_clicked()
     msj.setText( sudoku->validate() ? "Tablero válido" : "Tablaro NO válido" );
     msj.exec();
 }
->>>>>>> 8a7aa006b7705dd9a0c6dab4cfb8eadad6409c0c
