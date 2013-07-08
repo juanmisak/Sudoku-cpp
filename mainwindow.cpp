@@ -12,7 +12,8 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    dificultad(2)
  /**
   * Constructor
   * Se inicializa el constructor con 81 celdas que seran
@@ -28,6 +29,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     initBoard();
+
+    // Generate sudoku and make the board visible,
+    sudoku = new Sudoku();
+    connect(sudoku, &Sudoku::cellChanged, this, &MainWindow::setCellValue);
+    sudoku->generate(dificultad*BOARD_SIZE + 3*BOARD_SIZE);
+    disconnect(sudoku, &Sudoku::cellChanged, this, &MainWindow::setCellValue);
+
 }
 /**
  * Destructor
@@ -43,17 +51,21 @@ void MainWindow::initBoard()
 {
     keyboard = new Keyboard( ui->centralWidget );
 
-    for ( int x = 0; x < BOARD_SIZE; x++ ){
-      for( int y = 0; y < BOARD_SIZE; y++ ){
-        cell[x+y] = new Cell();
+    int x, y;
+    for ( int i = 0; i < BOARD_SIZE*BOARD_SIZE; i++ ) {
+        x = i % BOARD_SIZE;
+        y = i / BOARD_SIZE;
+        cell[i] = new Cell();
+
         if (((y+1) % 3 == 0)&&((y+1)!= 9))
-            cell[x+y]->setText("||");
-        ui->board->addWidget( cell[x+y], x, y);
-        //connect(cell[x+y],SIGNAL(clicked()) , this, SLOT(celda_clicked()));
-        connect(cell[x+y],&Cell::clicked , this, &MainWindow::celda_clicked);
-        connect(cell[x+y], &Cell::clicked, keyboard, &Keyboard::show);
-        cell[x+y]->setKeyboard(keyboard);
-      }
+            cell[i]->setText("||");
+
+        ui->board->addWidget( cell[i], x, y);
+
+        connect(cell[i], &Cell::clicked , this, &MainWindow::celda_clicked);
+        connect(cell[i], &Cell::clicked, keyboard, &Keyboard::show);
+
+        cell[i]->setKeyboard(keyboard);
     }
     connect(ui->pushButton1, &QPushButton::clicked, this, &MainWindow::number_clicked);
     connect(ui->pushButton2, &QPushButton::clicked, this, &MainWindow::number_clicked);
@@ -110,4 +122,9 @@ void MainWindow::number_clicked()
 void MainWindow::on_pushButton_clicked()
 {
 
+}
+
+void MainWindow::setCellValue(int index, int value)
+{
+    cell[index]->setValue(value);
 }

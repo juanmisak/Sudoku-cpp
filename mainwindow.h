@@ -37,10 +37,12 @@ private slots:
     void number_clicked();
 
     void on_pushButton_clicked();
+    void setCellValue(int index, int value);
 
 private:
     Ui::MainWindow *ui;
     Cell *cell[BOARD_SIZE * BOARD_SIZE];
+    Sudoku *sudoku;
     Keyboard *keyboard;
     /**
       * Una variable privada.

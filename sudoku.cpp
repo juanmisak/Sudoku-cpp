@@ -53,6 +53,11 @@ void Sudoku::generate(int empty)
             empty--;
         }
     }
+
+    // Emit signal for filled cells
+    for (int i =  0; i < BOARD_SIZE * BOARD_SIZE; i++)
+        if (cell[i] != 0)
+            emit cellChanged(i, cell[i]);
 }
 
 void Sudoku::swapRow(int i, int j)
@@ -169,12 +174,20 @@ void Sudoku::suggestedValues(int index, int suggestedValues[])
     }
 }
 
-void Sudoku::setCell(int value, int index)
+void Sudoku::setCellValue(int index, int value)
 {
-    cell[index] = value;
+    if (cell[index] != value) {
+        cell[index] = value;
+        emit cellChanged(index, value);
+    }
 }
 
-void Sudoku::setCell(int value, int x, int y)
+void Sudoku::setCellValue(int value, int x, int y)
 {
-    setCell(value, x+y);
+    setCellValue(value, x + y*BOARD_SIZE);
+}
+
+int Sudoku::getCellValue(int index)
+{
+    return cell[index];
 }

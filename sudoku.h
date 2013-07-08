@@ -14,12 +14,14 @@ public:
     bool validate();
     void badCells(int cells[]);
     void suggestedValues(int index, int suggestedCells[]);
+    int getCellValue(int index);
 
 signals:
+    void cellChanged(int index, int value);
     
 public slots:
-    void setCell(int value, int index);
-    void setCell(int value, int x, int y);
+    void setCellValue(int index, int value);
+    void setCellValue(int x, int y, int value);
 
 private:
     void swapRow(int i, int j);
