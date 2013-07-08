@@ -21,7 +21,6 @@ signals:
     
 public slots:
     void setCellValue(int index, int value);
-    void setCellValue(int x, int y, int value);
 
 private:
     void swapRow(int i, int j);

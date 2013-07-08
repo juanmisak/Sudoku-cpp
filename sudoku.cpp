@@ -181,11 +181,6 @@ void Sudoku::setCellValue(int index, int value)
     }
 }
 
-void Sudoku::setCellValue(int value, int x, int y)
-{
-    setCellValue(value, x + y*BOARD_SIZE);
-}
-
 int Sudoku::getCellValue(int index)
 {
     return cell[index];

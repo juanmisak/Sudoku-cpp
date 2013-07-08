@@ -30,6 +30,8 @@ MainWindow::MainWindow(QWidget *parent) :
     sudoku->generate(dificultad*BOARD_SIZE + 3*BOARD_SIZE);
     disconnect(sudoku, &Sudoku::cellChanged, this, &MainWindow::setCellValue);
 
+    // Update the model when the view is changed
+    connect(this, &MainWindow::cellValueChanged, sudoku, &Sudoku::setCellValue);
 }
 
 /**
@@ -58,6 +60,7 @@ void MainWindow::initBoard()
 
         connect(cell[i], &Cell::clicked , this, &MainWindow::celda_clicked);
         connect(cell[i], &Cell::clicked, keyboard, &Keyboard::show);
+        connect(cell[i], &Cell::valueChanged, this, &MainWindow::setCellValueFromView);
 
         cell[i]->setKeyboard(keyboard);
     }
@@ -116,6 +119,19 @@ void MainWindow::number_clicked()
 void MainWindow::setCellValue(int index, int value)
 {
     cell[index]->setValue(value);
+}
+
+
+void MainWindow::setCellValueFromView(int value)
+{
+    Cell *c = (Cell *) sender();
+
+    int index = 0;
+    for ( ; index < BOARD_SIZE * BOARD_SIZE; index++)
+        if ( c == cell[index] )
+            break;
+
+    emit cellValueChanged(index, value);
 }
 
 void MainWindow::on_finishButton_clicked()
