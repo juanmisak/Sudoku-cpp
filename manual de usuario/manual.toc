@@ -1,0 +1,21 @@
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{2}
+\contentsline {subsection}{\numberline {1.1}Descripci\IeC {\'o}n}{3}
+\contentsline {section}{\numberline {2}Manual de usuario}{3}
+\contentsline {subsection}{\numberline {2.1}Pasos de la aplicaci\IeC {\'o}n}{3}
+\contentsline {subsection}{\numberline {2.2}Pantalla inicial}{4}
+\contentsline {subsection}{\numberline {2.3}Preferencias}{4}
+\contentsline {subsection}{\numberline {2.4}Juego nuevo}{5}
+\contentsline {subsection}{\numberline {2.5}Estad\IeC {\'\i }sticas}{5}
+\contentsline {subsection}{\numberline {2.6}Desarrolladores}{5}
+\contentsline {subsection}{\numberline {2.7}Bot\IeC {\'o}n Home}{5}
+\contentsline {section}{\numberline {3}Ventanas}{6}
+\contentsline {subsection}{\numberline {3.1}Juego Nuevo}{6}
+\contentsline {subsection}{\numberline {3.2}Barra de men\IeC {\'u}}{6}
+\contentsline {subsection}{\numberline {3.3}Sudoku /Juego Nuevo}{6}
+\contentsline {subsection}{\numberline {3.4}Sudoku /Salir}{6}
+\contentsline {subsection}{\numberline {3.5}Bot\IeC {\'o}n Termin\IeC {\'e}!}{6}
+\contentsline {subsection}{\numberline {3.6}Desarrolladores}{7}
+\contentsline {subsection}{\numberline {3.7}Estad\IeC {\'\i }sticas}{8}
+\contentsline {section}{\numberline {4}Bibliograf\IeC {\'\i }a}{8}
+\contentsline {section}{\numberline {5}Referencias}{8}
