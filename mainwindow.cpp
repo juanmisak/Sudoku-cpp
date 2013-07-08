@@ -54,7 +54,7 @@ void MainWindow::initBoard()
         cell[i] = new Cell();
 
         if ( (y % 3 == 0 && y != 0) || ( y == 0 && x % 3 == 0) )
-            cell[i]->set(true);
+            setVisible(true);
 
         ui->board->addWidget(cell[i], y, x);
 
