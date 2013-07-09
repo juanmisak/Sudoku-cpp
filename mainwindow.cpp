@@ -53,8 +53,10 @@ void MainWindow::initBoard()
         y = i / BOARD_SIZE;
         cell[i] = new Cell();
 
-        if ( (y % 3 == 0 && y != 0) || ( y == 0 && x % 3 == 0) )
-            setVisible(true);
+        if ( (y % 3 == 0 && y != 0) || ( y == 0 && x % 3 == 0) ){
+
+             cell[i]->setAutoFillBackground(false);
+        }
 
         ui->board->addWidget(cell[i], y, x);
 

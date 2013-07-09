@@ -13,8 +13,8 @@
 \contentsline {subsection}{\numberline {3.1}Juego Nuevo}{6}
 \contentsline {subsection}{\numberline {3.2}Barra de men\IeC {\'u}}{6}
 \contentsline {subsection}{\numberline {3.3}Sudoku /Juego Nuevo}{6}
-\contentsline {subsection}{\numberline {3.4}Sudoku /Salir}{6}
-\contentsline {subsection}{\numberline {3.5}Bot\IeC {\'o}n Termin\IeC {\'e}!}{6}
+\contentsline {subsection}{\numberline {3.4}Sudoku /Salir}{7}
+\contentsline {subsection}{\numberline {3.5}Bot\IeC {\'o}n Termin\IeC {\'e}!}{7}
 \contentsline {subsection}{\numberline {3.6}Desarrolladores}{7}
 \contentsline {subsection}{\numberline {3.7}Estad\IeC {\'\i }sticas}{8}
 \contentsline {section}{\numberline {4}Bibliograf\IeC {\'\i }a}{8}

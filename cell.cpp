@@ -20,7 +20,7 @@ Cell::Cell(QWidget *parent) :
     //       icon1.addFile(QStringLiteral(":/images/Mysitemyway-Blue-Jeans-Social-Media-Delicious-square.ico"), QSize(), QIcon::Normal, QIcon::Off);
     //this->setIcon(icon1);
     //this->setIconSize(QSize(30, 30));
-    this->backgroundRole();    
+    this->backgroundRole();
     //this->setFlat(true);
 
     value = new QPushButton();

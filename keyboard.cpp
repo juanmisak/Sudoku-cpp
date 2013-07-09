@@ -3,6 +3,7 @@
 
 #include <QGridLayout>
 #include <QPushButton>
+#include <QPushButton>
 #include <QIcon>
 
 Keyboard::Keyboard(QWidget *parent) :
@@ -20,6 +21,7 @@ Keyboard::Keyboard(QWidget *parent) :
     {
         numbers[i] = new QPushButton();
         numbers[i]->setFlat(true);
+
         numbers[i]->setText(QString::number(i));
         //QIcon icono = setIcon(i);
         //numbers[i]->setIcon(icono);
