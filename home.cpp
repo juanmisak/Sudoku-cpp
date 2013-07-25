@@ -67,8 +67,14 @@ void Home::on_btnEstadistica_clicked()
 
 void Home::on_btnDesarrolladores_clicked()
 {
+<<<<<<< HEAD
     Developer *d;
     d = new Developer();
+=======
+    Estadistica *d;
+    d = new Estadistica();
+    d->graficarEstadisticas("Juan",133,"Esteban",106,"Ramón",84,"Micka",50,"Andrea",40);
+>>>>>>> fb599d53ca066c133c06324882d0729b1cfac461
     d->setVisible(true);
     this->close();
 }
