@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>618</width>
+    <width>622</width>
     <height>438</height>
    </rect>
   </property>
@@ -435,7 +435,7 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>210</x>
      <y>190</y>
      <width>151</width>
      <height>21</height>
@@ -456,8 +456,8 @@
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>140</y>
+     <x>220</x>
+     <y>130</y>
      <width>241</width>
      <height>31</height>
     </rect>
@@ -477,8 +477,8 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>70</y>
+     <x>210</x>
+     <y>30</y>
      <width>181</width>
      <height>31</height>
     </rect>
@@ -501,9 +501,9 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>290</y>
-     <width>551</width>
+     <x>220</x>
+     <y>310</y>
+     <width>171</width>
      <height>51</height>
     </rect>
    </property>
@@ -511,19 +511,19 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>dictada por el Ing. Javier Tibau.</string>
+    <string>Profesor Ing. Javier Tibau.</string>
    </property>
    <property name="textFormat">
     <enum>Qt::AutoText</enum>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="btnInicio">
    <property name="geometry">
     <rect>
-     <x>540</x>
+     <x>490</x>
      <y>20</y>
-     <width>51</width>
-     <height>41</height>
+     <width>91</width>
+     <height>81</height>
     </rect>
    </property>
    <property name="toolTip">
@@ -541,8 +541,8 @@
    </property>
    <property name="iconSize">
     <size>
-     <width>30</width>
-     <height>30</height>
+     <width>60</width>
+     <height>60</height>
     </size>
    </property>
    <property name="flat">
@@ -552,8 +552,8 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>130</y>
+     <x>210</x>
+     <y>110</y>
      <width>171</width>
      <height>31</height>
     </rect>
@@ -573,8 +573,8 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>80</y>
+     <x>220</x>
+     <y>50</y>
      <width>241</width>
      <height>31</height>
     </rect>
@@ -597,9 +597,9 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>270</y>
-     <width>551</width>
+     <x>160</x>
+     <y>280</y>
+     <width>311</width>
      <height>51</height>
     </rect>
    </property>
@@ -607,7 +607,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>Ingeniería Electrica y Computación(FIEC).Juego realizado a propósito de la materia de Lenguajes de Programación </string>
+    <string>Escuela Superior Politecnica del Litoral (ESPOL)</string>
    </property>
    <property name="textFormat">
     <enum>Qt::AutoText</enum>
@@ -616,7 +616,7 @@
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>220</x>
      <y>200</y>
      <width>241</width>
      <height>30</height>
@@ -637,7 +637,7 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>50</x>
      <y>320</y>
      <width>81</width>
      <height>91</height>
@@ -666,9 +666,9 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>340</y>
-     <width>331</width>
+     <x>150</x>
+     <y>330</y>
+     <width>391</width>
      <height>81</height>
     </rect>
    </property>
@@ -690,9 +690,9 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>140</x>
      <y>250</y>
-     <width>491</width>
+     <width>381</width>
      <height>51</height>
     </rect>
    </property>
@@ -700,7 +700,7 @@
     <bool>false</bool>
    </property>
    <property name="text">
-    <string>Estudiantes de Ing. en Ciencias Computacionales especialidad Sistemas Tecnológicos de la Facultad de</string>
+    <string>Estudiantes de Ingenieria en Ciencias Computacionales</string>
    </property>
    <property name="textFormat">
     <enum>Qt::AutoText</enum>
@@ -712,7 +712,7 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>40</x>
      <y>80</y>
      <width>151</width>
      <height>131</height>
@@ -747,8 +747,8 @@
   <widget class="QPushButton" name="pushButton_4">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>100</y>
+     <x>250</x>
+     <y>70</y>
      <width>31</width>
      <height>31</height>
     </rect>
@@ -773,7 +773,7 @@
   <widget class="QPushButton" name="pushButton_5">
    <property name="geometry">
     <rect>
-     <x>270</x>
+     <x>250</x>
      <y>220</y>
      <width>31</width>
      <height>31</height>
@@ -799,8 +799,8 @@
   <widget class="QPushButton" name="pushButton_6">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>160</y>
+     <x>250</x>
+     <y>150</y>
      <width>31</width>
      <height>31</height>
     </rect>
@@ -825,8 +825,8 @@
   <widget class="QLabel" name="label_11">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>160</y>
+     <x>280</x>
+     <y>150</y>
      <width>171</width>
      <height>31</height>
     </rect>
@@ -846,7 +846,7 @@
   <widget class="QLabel" name="label_12">
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>280</x>
      <y>220</y>
      <width>231</width>
      <height>31</height>
@@ -867,8 +867,8 @@
   <widget class="QLabel" name="label_13">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>100</y>
+     <x>280</x>
+     <y>70</y>
      <width>171</width>
      <height>31</height>
     </rect>

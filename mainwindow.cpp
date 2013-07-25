@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include "keyboard.h"
 #include "cell.h"
+#include "home.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -59,13 +60,13 @@ void MainWindow::initBoard()
         }
 
         ui->board->addWidget(cell[i], y, x);
-
+/*
         connect(cell[i], &Cell::clicked , this, &MainWindow::celda_clicked);
         connect(cell[i], &Cell::clicked, keyboard, &Keyboard::show);
         connect(cell[i], &Cell::valueChanged, this, &MainWindow::setCellValueFromView);
-
+*/
         cell[i]->setKeyboard(keyboard);
-    }
+    }/*
     connect(ui->pushButton1, &QPushButton::clicked, this, &MainWindow::number_clicked);
     connect(ui->pushButton2, &QPushButton::clicked, this, &MainWindow::number_clicked);
     connect(ui->pushButton3, &QPushButton::clicked, this, &MainWindow::number_clicked);
@@ -74,7 +75,7 @@ void MainWindow::initBoard()
     connect(ui->pushButton6, &QPushButton::clicked, this, &MainWindow::number_clicked);
     connect(ui->pushButton7, &QPushButton::clicked, this, &MainWindow::number_clicked);
     connect(ui->pushButton8, &QPushButton::clicked, this, &MainWindow::number_clicked);
-    connect(ui->pushButton9, &QPushButton::clicked, this, &MainWindow::number_clicked);
+    connect(ui->pushButton9, &QPushButton::clicked, this, &MainWindow::number_clicked);*/
 }
 
 void MainWindow::on_actionSalir_triggered()
@@ -85,7 +86,7 @@ void MainWindow::on_actionSalir_triggered()
 {
     qApp->quit();
 }
-
+/*
 void MainWindow::celda_clicked()
 {
     // Get input number
@@ -116,7 +117,7 @@ void MainWindow::number_clicked()
             icon1.addFile(QStringLiteral(":/images/Numbers-8.ico"), QSize(), QIcon::Normal, QIcon::Off);
         else if (button == ui->pushButton9)
             icon1.addFile(QStringLiteral(":/images/Numbers-9.ico"), QSize(), QIcon::Normal, QIcon::Off);
-}
+}*/
 
 void MainWindow::setCellValue(int index, int value)
 {
@@ -133,7 +134,6 @@ void MainWindow::setCellValueFromView(int value)
     for ( ; index < BOARD_SIZE * BOARD_SIZE; index++)
         if ( c == cell[index] )
             break;
-
     emit cellValueChanged(index, value);
 }
 
@@ -143,4 +143,17 @@ void MainWindow::on_finishButton_clicked()
 
     msj.setText( sudoku->validate() ? "Tablero válido" : "Tablaro NO válido" );
     msj.exec();
+}
+
+void MainWindow::on_actionSALIR_triggered()
+{
+    this->close();
+}
+
+void MainWindow::on_actionATRAS_triggered()
+{
+    Home *home;
+    home = new Home();
+    home->setVisible(true);
+    this->close();
 }

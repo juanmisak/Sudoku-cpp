@@ -25,13 +25,14 @@ public:
     ~Home();
     
 private slots:
-    void on_pushButton_3_clicked();
-
-    void on_pushButton_4_clicked();
-
-    void on_pushButton_2_clicked();
 
 
+
+    void on_btnJugar_clicked();
+
+    void on_btnEstadistica_clicked();
+
+    void on_btnDesarrolladores_clicked();
 
 private:
     /**

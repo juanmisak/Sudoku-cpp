@@ -24,7 +24,11 @@ public:
     ~Developer();
     
 private slots:
-    void on_pushButton_3_clicked();
+
+
+    void on_btnInicio_clicked();
+
+
 
 private:
     Ui::Developer *ui;

@@ -14,7 +14,11 @@ Developer::~Developer()
     delete ui;
 }
 
-void Developer::on_pushButton_3_clicked()
+
+
+
+
+void Developer::on_btnInicio_clicked()
 {
     Home *d;
     d = new Home();

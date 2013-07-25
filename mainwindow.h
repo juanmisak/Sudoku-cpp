@@ -37,11 +37,15 @@ signals:
 
 private slots:
     void on_actionSalir_triggered();
-    void celda_clicked();
-    void number_clicked();
+    //void celda_clicked();
+    //void number_clicked();
     void setCellValue(int index, int value);
     void setCellValueFromView(int value);
     void on_finishButton_clicked();
+
+    void on_actionSALIR_triggered();
+
+    void on_actionATRAS_triggered();
 
 private:
     Ui::MainWindow *ui;

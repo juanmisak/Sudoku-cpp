@@ -26,5 +26,12 @@
         <file>Visualpharm-Icons8-Metro-Style-USB-Usb-connected.ico</file>
         <file>Deleket-Social-Networking-Facebook.ico</file>
         <file>Iconarchive-Red-Orb-Alphabet-Letter-S.ico</file>
+        <file>Visualpharm_atras.ico</file>
+        <file>Visualpharm_cargarPartida.ico</file>
+        <file>Visualpharm_guardarPartida.ico</file>
+        <file>Visualpharm_jugadasIncorrectas.ico</file>
+        <file>Visualpharm_jugadasInvalidas.ico</file>
+        <file>Visualpharm_proporcionarAyuda.ico</file>
+        <file>Visualpharm_salir.ico</file>
     </qresource>
 </RCC>

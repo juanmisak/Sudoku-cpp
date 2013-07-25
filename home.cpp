@@ -17,9 +17,11 @@ Home::~Home()
     delete ui;
 }
 
-void Home::on_pushButton_3_clicked()
-{
 
+
+
+void Home::on_btnJugar_clicked()
+{
 
     MainWindow *w; //Refetencia a la ventana que presenta la tabla sudoku
        QMessageBox msgBox;
@@ -53,24 +55,20 @@ void Home::on_pushButton_3_clicked()
            msgBox.setText("Nivel facil");
            msgBox.exec();
        }
-
 }
 
-void Home::on_pushButton_4_clicked()
-{
-    Developer *d;
-    d = new Developer();
-    d->setVisible(true);
-    this->close();
-
-}
-
-
-
-void Home::on_pushButton_2_clicked()
+void Home::on_btnEstadistica_clicked()
 {
     Estadistica *d;
     d = new Estadistica();
+    d->setVisible(true);
+    this->close();
+}
+
+void Home::on_btnDesarrolladores_clicked()
+{
+    Developer *d;
+    d = new Developer();
     d->setVisible(true);
     this->close();
 }
