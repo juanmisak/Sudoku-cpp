@@ -71,6 +71,7 @@ void Home::on_pushButton_2_clicked()
 {
     Estadistica *d;
     d = new Estadistica();
+    d->graficarEstadisticas("Juan",133,"Esteban",106,"Ramón",84,"Micka",50,"Andrea",40);
     d->setVisible(true);
     this->close();
 }
