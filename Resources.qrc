@@ -32,6 +32,5 @@
         <file>Visualpharm_jugadasIncorrectas.ico</file>
         <file>Visualpharm_jugadasInvalidas.ico</file>
         <file>Visualpharm_proporcionarAyuda.ico</file>
-        <file>Visualpharm_salir.ico</file>
     </qresource>
 </RCC>

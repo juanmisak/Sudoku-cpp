@@ -10,71 +10,62 @@ Home::Home(QWidget *parent) :
     ui(new Ui::Home)
   {
     ui->setupUi(this);
-}
+
+    w = new MainWindow();
+    d = new Developer();
+    e = new Estadistica();
+  }
 
 Home::~Home()
 {
     delete ui;
+    delete w;
+    delete d;
+    delete e;
 }
-
-
-
-
+/**
+ * Inserta un título en la clase descripción.
+ * Al ser el título obligatorio, si es nulo o vacío se lanzará
+ * una excepción.
+ *
+ * @param titulo El nuevo título de la descripción.
+ * @throws IllegalArgumentException Si titulo es null, está vacío o contiene sólo espacios.
+ */
 void Home::on_btnJugar_clicked()
 {
+       //Nivel facil 36 celdas vacias."""
+       if(ui->radioButtonFacil->isChecked()){
+           this->setVisible(false);
 
-    MainWindow *w; //Refetencia a la ventana que presenta la tabla sudoku
-       QMessageBox msgBox;
-       w = new MainWindow();
-       bool noChenck = ui->radioButtonDificil->isChecked() | ui->radioButtonIntermedio->isChecked() | ui->radioButtonFacil->isChecked();
-       if(noChenck == false){
+           w->setVisible(true);
+           w->dificultad=1;
+       }     
+       else if (ui->radioButtonIntermedio->isChecked()){
            this->setVisible(false);
            w->show();
-           w->dificultad=1;
-           msgBox.setText("Nivel facil, por defecto ;)");
-           msgBox.setAutoFillBackground(false);
-           msgBox.exec();
+           w->dificultad=2;
        }
        else if (ui->radioButtonDificil->isChecked()){
            this->setVisible(false);
            w->show();
            w->dificultad=3;
-           msgBox.setText("Nivel Dificil");
-           msgBox.exec();
-       }
-       else if (ui->radioButtonIntermedio->isChecked()){
-           this->setVisible(false);
-           w->show();
-           w->dificultad=2;
-           msgBox.setText("Nivel intermedio");
-           msgBox.exec();
        }else{
            this->setVisible(false);
            w->show();
            w->dificultad=1;
-           msgBox.setText("Nivel facil");
-           msgBox.exec();
        }
 }
 
 void Home::on_btnEstadistica_clicked()
 {
-    Estadistica *d;
-    d = new Estadistica();
-    d->setVisible(true);
+    e->graficarEstadisticas("Juan",133,"Esteban",106,"Ramón",84,"Micka",50,"Andrea",40);
+    e->setVisible(true);
     this->close();
 }
 
 void Home::on_btnDesarrolladores_clicked()
 {
-<<<<<<< HEAD
-    Developer *d;
-    d = new Developer();
-=======
-    Estadistica *d;
-    d = new Estadistica();
-    d->graficarEstadisticas("Juan",133,"Esteban",106,"Ramón",84,"Micka",50,"Andrea",40);
->>>>>>> fb599d53ca066c133c06324882d0729b1cfac461
-    d->setVisible(true);
-    this->close();
+   d->setVisible(true);
+   this->close();
+
 }
