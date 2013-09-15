@@ -15,13 +15,7 @@ Cell::Cell(QWidget *parent) :
           font1.setPointSize(16);
           font1.setBold(false);
           font1.setWeight(50);
-          //this->setFont(font1);
-    //QIcon icon1;
-    //       icon1.addFile(QStringLiteral(":/images/Mysitemyway-Blue-Jeans-Social-Media-Delicious-square.ico"), QSize(), QIcon::Normal, QIcon::Off);
-    //this->setIcon(icon1);
-    //this->setIconSize(QSize(30, 30));
     this->backgroundRole();
-    //this->setFlat(true);
 
     value = new QPushButton();
     connect(value, &QPushButton::clicked, this, &Cell::clicked);

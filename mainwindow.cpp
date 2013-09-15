@@ -30,15 +30,12 @@ MainWindow::MainWindow(QWidget *parent) :
     initBoard();
     timer = new QTimer(this);
 
-    // Generate sudoku and make the board visible,
-    sudoku = new Sudoku();
 
-    connect(sudoku, &Sudoku::cellChanged, this, &MainWindow::setCellValue);
+
+
     sudoku->generate(dificultad*BOARD_SIZE + 3*BOARD_SIZE);
-    disconnect(sudoku, &Sudoku::cellChanged, this, &MainWindow::setCellValue);
 
-    // Update the model when the view is changed
-    connect(this, &MainWindow::cellValueChanged, sudoku, &Sudoku::setCellValue);
+
 }
 
 /**
@@ -47,7 +44,7 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete keyboard;
+    delete keyboard;   
 }
 
 void MainWindow::initTimer(int elapsedSeconds)
@@ -65,7 +62,8 @@ void MainWindow::stopTimer()
     timer->stop();
 }
 
-/**Funcion que permite tener actualizado el
+/**
+ *Funcion que permite tener actualizado el
  *timer mientras el jugador tenga activo el juego.
  */
 void MainWindow::timerTimeout()
@@ -109,20 +107,23 @@ void MainWindow::initBoard()
     }
 }
 
-void MainWindow::newGame(QString name,int elapsedSeconds , Sudoku *sudoku = NULL)
+void MainWindow::newGame(QString name,int elapsedSeconds = 0 , Sudoku *sudoku = NULL)
 {
-    elapsedSeconds = 0;
-
     if (sudoku == NULL){
         this->sudoku = new Sudoku();
-        //this->sudoku->shuffle(difficulty*9 + 3*9);
+        this->sudoku->generate(getDifficulty()*BOARD_SIZE + 3*BOARD_SIZE);
     }
     else{
-        this->sudoku = sudoku;
-        //this->sudoku->cellChanged.c;
-        initTimer(elapsedSeconds);
-        ui->btnJugador->setText(name);
+        this->sudoku = sudoku;        
     }
+    connect(sudoku, &Sudoku::cellValueChanged, this, &MainWindow::setCellValue);
+    this->sudoku->triggerChanges();
+    disconnect(sudoku, &Sudoku::cellValueChanged, this, &MainWindow::setCellValue);
+    // Update the model when the view is changed
+    connect(this, &MainWindow::cellValueChanged, this->sudoku, &Sudoku::setCellValue);
+    initTimer(elapsedSeconds);
+    ui->btnJugador->setText(name);
+
 }
 
 void MainWindow::endGame()
@@ -149,6 +150,12 @@ void MainWindow::setCellValueFromView(int value)
 
 void MainWindow::setDifficulty(int value)
 {
+    this->dificultad = value;
+}
+
+int MainWindow::getDifficulty()
+{
+    return this->dificultad;
 }
 
 void MainWindow::on_actionSalir_triggered()
@@ -180,3 +187,4 @@ void MainWindow::on_actionATRAS_triggered()
     home->setVisible(true);
     this->close();
 }
+

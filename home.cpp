@@ -11,7 +11,7 @@ Home::Home(QWidget *parent) :
   {
     ui->setupUi(this);
 
-    w = new MainWindow();
+    mainwindow = new MainWindow();
     d = new Developer();
     e = new Estadistica();
   }
@@ -19,7 +19,7 @@ Home::Home(QWidget *parent) :
 Home::~Home()
 {
     delete ui;
-    delete w;
+    delete mainwindow;
     delete d;
     delete e;
 }
@@ -33,27 +33,25 @@ Home::~Home()
  */
 void Home::on_btnJugar_clicked()
 {
+    int dificultad;
        //Nivel facil 36 celdas vacias."""
        if(ui->radioButtonFacil->isChecked()){
-           this->setVisible(false);
-
-           w->setVisible(true);
-           w->dificultad=1;
+           dificultad=1;
        }     
        else if (ui->radioButtonIntermedio->isChecked()){
-           this->setVisible(false);
-           w->show();
-           w->dificultad=2;
+           dificultad=2;
        }
        else if (ui->radioButtonDificil->isChecked()){
-           this->setVisible(false);
-           w->show();
-           w->dificultad=3;
+           dificultad=3;
        }else{
-           this->setVisible(false);
-           w->show();
-           w->dificultad=1;
+           dificultad=1;
        }
+       this->setVisible(false);
+       mainwindow->setVisible(true);
+       mainwindow->setDifficulty(dificultad);
+       mainwindow->newGame(ui->txtNombre->text(),0,NULL);
+
+
 }
 
 void Home::on_btnEstadistica_clicked()

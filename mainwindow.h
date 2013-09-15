@@ -33,6 +33,9 @@ public:
       */
     ~MainWindow();
     int dificultad;
+    int getDifficulty();
+    void setDifficulty(int value);
+    void newGame(QString name,int elapsedSeconds , Sudoku *sudoku);
 
 signals:
     void cellValueChanged(int index, int value);
@@ -48,12 +51,11 @@ private slots:
     void initTimer(int elapsedSeconds);
     void stopTimer();
     void timerTimeout();
-    void newGame(QString name,int elapsedSeconds , Sudoku *sudoku);
+
     void endGame();
     void setCellValue(int index, int value);
     void setCellValueFromView(int value);
     //void setHomeWindow(Home homeWindows);
-    void setDifficulty(int value);
 
 
 

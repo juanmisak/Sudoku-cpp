@@ -38,7 +38,7 @@ private:
       * Detalles.
       */
     Ui::Home *ui;
-    MainWindow *w;
+    MainWindow *mainwindow;
     Developer *d;
     Estadistica *e;
 
