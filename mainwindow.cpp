@@ -2,10 +2,14 @@
 #include "ui_mainwindow.h"
 #include <QGridLayout>
 #include <QPushButton>
+#include <QTimer>
 #include <QMessageBox>
-#include "keyboard.h"
+#include <QSettings>
+#include <QResizeEvent>
 #include "cell.h"
-#include "home.h"
+#include "keyboard.h"
+#include <home.h>
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -24,9 +28,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     initBoard();
+    timer = new QTimer(this);
 
     // Generate sudoku and make the board visible,
     sudoku = new Sudoku();
+
     connect(sudoku, &Sudoku::cellChanged, this, &MainWindow::setCellValue);
     sudoku->generate(dificultad*BOARD_SIZE + 3*BOARD_SIZE);
     disconnect(sudoku, &Sudoku::cellChanged, this, &MainWindow::setCellValue);
@@ -42,6 +48,44 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete keyboard;
+}
+
+void MainWindow::initTimer(int elapsedSeconds)
+{
+    timer->setInterval(1000);
+    timer->start();
+    h = (elapsedSeconds / 3600);
+    m = (elapsedSeconds - 3600*h) / 60;
+    s = (elapsedSeconds - 3600*h) % 60;
+    connect(timer,SIGNAL(timeout()),this,SLOT(timerTimeout()));
+}
+
+void MainWindow::stopTimer()
+{
+    timer->stop();
+}
+
+/**Funcion que permite tener actualizado el
+ *timer mientras el jugador tenga activo el juego.
+ */
+void MainWindow::timerTimeout()
+{
+    s++;
+    if (s > 59) {
+        s = 0;
+        m++;
+    }
+    else if (m > 59) {
+            m = 0;
+            h++;
+    }
+    else if (h > 23) {
+                this->h = 0;
+    }
+    ui->btnTiempo->setText(QString ("%1:%2:%3")
+                           .arg (h)
+                           .arg (m)
+                           .arg (s));
 }
 
 void MainWindow::initBoard()
@@ -60,71 +104,37 @@ void MainWindow::initBoard()
         }
 
         ui->board->addWidget(cell[i], y, x);
-/*
-        connect(cell[i], &Cell::clicked , this, &MainWindow::celda_clicked);
-        connect(cell[i], &Cell::clicked, keyboard, &Keyboard::show);
-        connect(cell[i], &Cell::valueChanged, this, &MainWindow::setCellValueFromView);
-*/
+
         cell[i]->setKeyboard(keyboard);
-    }/*
-    connect(ui->pushButton1, &QPushButton::clicked, this, &MainWindow::number_clicked);
-    connect(ui->pushButton2, &QPushButton::clicked, this, &MainWindow::number_clicked);
-    connect(ui->pushButton3, &QPushButton::clicked, this, &MainWindow::number_clicked);
-    connect(ui->pushButton4, &QPushButton::clicked, this, &MainWindow::number_clicked);
-    connect(ui->pushButton5, &QPushButton::clicked, this, &MainWindow::number_clicked);
-    connect(ui->pushButton6, &QPushButton::clicked, this, &MainWindow::number_clicked);
-    connect(ui->pushButton7, &QPushButton::clicked, this, &MainWindow::number_clicked);
-    connect(ui->pushButton8, &QPushButton::clicked, this, &MainWindow::number_clicked);
-    connect(ui->pushButton9, &QPushButton::clicked, this, &MainWindow::number_clicked);*/
+    }
 }
 
-void MainWindow::on_actionSalir_triggered()
-/**
- * Evento que permite salir de la aplicacion.
- * @author Esteban Muñoz.
- */
+void MainWindow::newGame(QString name,int elapsedSeconds , Sudoku *sudoku = NULL)
 {
-    qApp->quit();
-}
-/*
-void MainWindow::celda_clicked()
-{
-    // Get input number
-    Cell *cell = (Cell *) sender();
-   //cell->setText(QString(selectedNumber));
-    //cell->setIcon(icon1);
+    elapsedSeconds = 0;
 
+    if (sudoku == NULL){
+        this->sudoku = new Sudoku();
+        //this->sudoku->shuffle(difficulty*9 + 3*9);
+    }
+    else{
+        this->sudoku = sudoku;
+        //this->sudoku->cellChanged.c;
+        initTimer(elapsedSeconds);
+        ui->btnJugador->setText(name);
+    }
 }
 
-void MainWindow::number_clicked()
+void MainWindow::endGame()
 {
-    QPushButton *button = (QPushButton *) sender();
-        if (button == ui->pushButton1)
-            icon1.addFile(QStringLiteral(":/images/Numbers-1.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        else if (button == ui->pushButton2)
-            icon1.addFile(QStringLiteral(":/images/Numbers-2.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        else if (button == ui->pushButton3)
-            icon1.addFile(QStringLiteral(":/images/Numbers-3.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        else if (button == ui->pushButton4)
-            icon1.addFile(QStringLiteral(":/images/Numbers-4.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        else if (button == ui->pushButton5)
-            icon1.addFile(QStringLiteral(":/images/Numbers-5.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        else if (button == ui->pushButton6)
-            icon1.addFile(QStringLiteral(":/images/Numbers-6.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        else if (button == ui->pushButton7)
-            icon1.addFile(QStringLiteral(":/images/Numbers-7.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        else if (button == ui->pushButton8)
-            icon1.addFile(QStringLiteral(":/images/Numbers-8.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        else if (button == ui->pushButton9)
-            icon1.addFile(QStringLiteral(":/images/Numbers-9.ico"), QSize(), QIcon::Normal, QIcon::Off);
-}*/
+
+}
 
 void MainWindow::setCellValue(int index, int value)
 {
     cell[index]->setValue(value);
     cell[index]->setDisabled(true);
 }
-
 
 void MainWindow::setCellValueFromView(int value)
 {
@@ -135,6 +145,19 @@ void MainWindow::setCellValueFromView(int value)
         if ( c == cell[index] )
             break;
     emit cellValueChanged(index, value);
+}
+
+void MainWindow::setDifficulty(int value)
+{
+}
+
+void MainWindow::on_actionSalir_triggered()
+/**
+ * Evento que permite salir de la aplicacion.
+ * @author Esteban Muñoz.
+ */
+{
+    qApp->quit();
 }
 
 void MainWindow::on_finishButton_clicked()

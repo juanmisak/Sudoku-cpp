@@ -2,12 +2,14 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <home.h>
 #include "cell.h"
 #include "sudoku.h"
 
 namespace Ui {
-class MainWindow;
+    class MainWindow;
 }
+
 /**
  * La clase Time representa un momento del tiempo.
  * @author Ramón Carrillo, Esteban Muñoz , Juan mite
@@ -39,19 +41,29 @@ private slots:
     void on_actionSalir_triggered();
     //void celda_clicked();
     //void number_clicked();
+
+    void on_finishButton_clicked();
+    void on_actionSALIR_triggered();
+    void on_actionATRAS_triggered();
+    void initTimer(int elapsedSeconds);
+    void stopTimer();
+    void timerTimeout();
+    void newGame(QString name,int elapsedSeconds , Sudoku *sudoku);
+    void endGame();
     void setCellValue(int index, int value);
     void setCellValueFromView(int value);
-    void on_finishButton_clicked();
+    //void setHomeWindow(Home homeWindows);
+    void setDifficulty(int value);
 
-    void on_actionSALIR_triggered();
 
-    void on_actionATRAS_triggered();
 
 private:
     Ui::MainWindow *ui;
     Cell *cell[BOARD_SIZE * BOARD_SIZE];
     Sudoku *sudoku;
     Keyboard *keyboard;
+    QTimer *timer ;
+    int h,m,s;
     /**
       * Permite utilizar un icono .
       */
@@ -64,4 +76,3 @@ private:
 };
 
 #endif // MAINWINDOW_H
-
