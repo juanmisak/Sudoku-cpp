@@ -4,10 +4,8 @@
 #include "sudoku.h"
 #include <cstdlib>
 
-Saver::Saver(QObject *parent) :
-    QObject(parent)
-{
-}
+Saver::Saver(QObject *parent):QObject(parent)
+{}
 
 bool Saver::save(int cell[])
 {

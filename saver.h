@@ -3,7 +3,7 @@
 
 #include <QObject>
 
-#define FILE_NAME "sudoku.save"
+#define FILE_NAME "sudoku.txt"
 
 class Saver : public QObject
 {

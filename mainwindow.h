@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "cell.h"
 #include "sudoku.h"
+#include "saver.h"
 
 namespace Ui {
 class MainWindow;
@@ -53,9 +54,14 @@ private slots:
 
     void on_endGameButton_triggered();
 
+    void on_actionGUARDAR_triggered();
+
+    void on_actionCARGAR_triggered();
+
 private:
     Ui::MainWindow *ui;
     Cell *cell[BOARD_SIZE * BOARD_SIZE];
+    Saver *saver;
     Sudoku *sudoku;
     Keyboard *keyboard;
     QTimer *timer ;

@@ -7,6 +7,7 @@
 #include "keyboard.h"
 #include "cell.h"
 #include "home.h"
+#include "saver.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -210,4 +211,17 @@ void MainWindow::on_endGameButton_triggered()
 
     msj.setText( sudoku->validate() ? "Tablero válido" : "Tablaro NO válido" );
     msj.exec();
+}
+
+void MainWindow::on_actionGUARDAR_triggered()
+{
+ QMessageBox ms;
+ saver->save(cell);
+    ms.setText("Partida guardada");
+    ms.exec();
+}
+
+void MainWindow::on_actionCARGAR_triggered()
+{
+
 }
