@@ -10,11 +10,10 @@ Home::Home(QWidget *parent) :
     ui(new Ui::Home)
   {
     ui->setupUi(this);
-
-    w = new MainWindow();
+    mainwindow = new MainWindow();
     d = new Developer();
     e = new Estadistica();
-  }
+}
 
 Home::~Home()
 {
@@ -27,20 +26,22 @@ Home::~Home()
 void Home::on_btnJugar_clicked()
 {
 
+    MainWindow *w; //Refetencia a la ventana que presenta la tabla sudoku
 
-       bool noChenck = ui->radioButtonDificil->isChecked() | ui->radioButtonIntermedio->isChecked() | ui->radioButtonFacil->isChecked();
-       if(noChenck == false){
+       w = new MainWindow();
+        //Nivel facil 36 celdas vacias."""
+       if(ui->radioButtonFacil->isChecked()){
            this->setVisible(false);
-           w->setVisible(true);
-           w->dificultad=1;
-
+           w->show();
+           w->dificultad=1;        
        }
+       //Nivel intermedio 36+9 = 45 celdas vacias.
        else if (ui->radioButtonDificil->isChecked()){
            this->setVisible(false);
            w->show();
            w->dificultad=3;
-
        }
+       //Nivel dificil 36+9+9 = 63 celdas vacias.
        else if (ui->radioButtonIntermedio->isChecked()){
            this->setVisible(false);
            w->show();
@@ -50,8 +51,8 @@ void Home::on_btnJugar_clicked()
            this->setVisible(false);
            w->show();
            w->dificultad=1;
-
        }
+       w->setName(ui->txtNombre->text());
 }
 
 void Home::on_btnEstadistica_clicked()
@@ -64,7 +65,7 @@ void Home::on_btnEstadistica_clicked()
 
 void Home::on_btnDesarrolladores_clicked()
 {
-   d->setVisible(true);
-   this->close();
 
+    d->setVisible(true);
+    this->close();
 }

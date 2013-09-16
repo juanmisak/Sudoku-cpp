@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>563</width>
+    <width>561</width>
     <height>552</height>
    </rect>
   </property>
@@ -545,22 +545,15 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
     </layout>
    </widget>
-   <widget class="Line" name="line">
+   <widget class="Line" name="line_3">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>40</y>
-      <width>20</width>
-      <height>471</height>
+      <x>0</x>
+      <y>200</y>
+      <width>551</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="palette">
@@ -979,14 +972,14 @@
      </palette>
     </property>
     <property name="orientation">
-     <enum>Qt::Vertical</enum>
+     <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="Line" name="line_2">
+   <widget class="Line" name="line">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>40</y>
+      <x>180</x>
+      <y>50</y>
       <width>20</width>
       <height>471</height>
      </rect>
@@ -1414,7 +1407,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>350</y>
+      <y>347</y>
       <width>551</width>
       <height>16</height>
      </rect>
@@ -1838,13 +1831,13 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="Line" name="line_3">
+   <widget class="Line" name="line_2">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>190</y>
-      <width>551</width>
-      <height>16</height>
+      <x>354</x>
+      <y>50</y>
+      <width>20</width>
+      <height>471</height>
      </rect>
     </property>
     <property name="palette">
@@ -2263,11 +2256,14 @@
      </palette>
     </property>
     <property name="orientation">
-     <enum>Qt::Horizontal</enum>
+     <enum>Qt::Vertical</enum>
     </property>
    </widget>
   </widget>
   <widget class="QToolBar" name="toolBar">
+   <property name="cursor">
+    <cursorShape>OpenHandCursor</cursorShape>
+   </property>
    <property name="windowTitle">
     <string>toolBar</string>
    </property>
@@ -2279,8 +2275,8 @@
    </attribute>
    <addaction name="actionJUEGO_NUEVO"/>
    <addaction name="actionGUARDAR"/>
-   <addaction name="separator"/>
    <addaction name="actionCARGAR"/>
+   <addaction name="separator"/>
    <addaction name="actionINVALIDAS"/>
    <addaction name="actionINCORRECTAS"/>
    <addaction name="actionAYUDA"/>
@@ -2369,7 +2365,7 @@
   </action>
   <action name="actionSALIR">
    <property name="icon">
-    <iconset>
+    <iconset resource="Resources.qrc">
      <normaloff>:/images/Visualpharm_salir.ico</normaloff>:/images/Visualpharm_salir.ico</iconset>
    </property>
    <property name="text">
@@ -2385,7 +2381,7 @@
      <normaloff>:/images/Iconarchive_Termine.ico</normaloff>:/images/Iconarchive_Termine.ico</iconset>
    </property>
    <property name="text">
-    <string>finish</string>
+    <string>TERMINE</string>
    </property>
    <property name="toolTip">
     <string>¡TERMINE!</string>

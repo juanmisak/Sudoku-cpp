@@ -12,10 +12,9 @@ Cell::Cell(QWidget *parent) :
 {
     QFont font1;
           font1.setFamily(QStringLiteral("Arial"));
-          font1.setPointSize(16);
+          font1.setPointSize(30);
           font1.setBold(false);
           font1.setWeight(50);
-
           //this->setFont(font1);
     //QIcon icon1;
     //       icon1.addFile(QStringLiteral(":/images/Mysitemyway-Blue-Jeans-Social-Media-Delicious-square.ico"), QSize(), QIcon::Normal, QIcon::Off);
@@ -87,9 +86,8 @@ void Cell::setMode(Mode mode)
     switch (mode) {
 
         case Cell::Final:
-            for (int i = 0; i < N_ANNOTATIONS; i++){
-                annotations[i]->hide();annotations[i]->setToolTip("anota un numero");
-annotations[i]->setStyleSheet("font: italic 23pt Courier 2 Pitch; background-color: rgb(82,163,153);");}
+            for (int i = 0; i < N_ANNOTATIONS; i++)
+                annotations[i]->hide();
             value->show();
             layout->addWidget(value);
             break;
@@ -99,8 +97,7 @@ annotations[i]->setStyleSheet("font: italic 23pt Courier 2 Pitch; background-col
             for (int i = 0; i < N_ANNOTATIONS; i++)
             {
                 annotations[i]->show();
-
-                annotations[i]->setStyleSheet("font: italic 7pt Courier 2 Pitch; background-color: rgb(82,163,136);");
+                annotations[i]->setStyleSheet("font: italic 7pt Courier 2 Pitch; background-color: rgb(82,163,153);");
                 layout->addWidget(annotations[i], i/3, i%3);
             }
             break;

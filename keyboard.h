@@ -27,7 +27,7 @@ private slots:
     void setModeToAnnotation();
 
 private:
-    QIcon icon1;
+    QIcon icon1,icon2,icon3,icon4,icon5,icon6,icon7,icon8,icon9;
     QGridLayout *keyboard;
     QPushButton *numbers[10];
     Cell *attachedCell;

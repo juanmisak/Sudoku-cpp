@@ -1,9 +1,10 @@
 #ifndef HOME_H
 #define HOME_H
-#include <mainwindow.h>
-#include <developer.h>
-#include <estadistica.h>
+
 #include <QDialog>
+#include <mainwindow.h>
+#include <estadistica.h>
+#include <developer.h>
 
 namespace Ui {
 class Home;
@@ -42,7 +43,7 @@ private:
       * Detalles.
       */
     Ui::Home *ui;
-    MainWindow *w;
+    MainWindow *mainwindow;
     Developer *d;
     Estadistica *e;
 

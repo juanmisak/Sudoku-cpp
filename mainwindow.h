@@ -10,7 +10,7 @@ class MainWindow;
 }
 /**
  * La clase Time representa un momento del tiempo.
- * @author Ramón Carrillo, Esteban Muñoz , Juan Mite
+ * @author Ramón Carrillo, Esteban Muñoz , Juan mite
  */
 class Keyboard;
 
@@ -31,6 +31,8 @@ public:
       */
     ~MainWindow();
     int dificultad;
+    void setName(QString name);
+    QString getName();
 
 signals:
     void cellValueChanged(int index, int value);
@@ -41,21 +43,23 @@ private slots:
     //void number_clicked();
     void setCellValue(int index, int value);
     void setCellValueFromView(int value);
-    //void on_finishButton_clicked();
-
+    void on_finishButton_clicked();
     void on_actionSALIR_triggered();
-
     void on_actionATRAS_triggered();
+    void on_actionJUEGO_NUEVO_triggered();
+    void initTimer(int elapsedSeconds);
+    void stopTimer();
+    void timerTimeout();
 
     void on_endGameButton_triggered();
-
-    void diag(int x);
 
 private:
     Ui::MainWindow *ui;
     Cell *cell[BOARD_SIZE * BOARD_SIZE];
     Sudoku *sudoku;
     Keyboard *keyboard;
+    QTimer *timer ;
+     int h,m,s;
     /**
       * Permite utilizar un icono .
       */
