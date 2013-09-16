@@ -31,9 +31,12 @@ public:
       * Una descripción más elaborada del destructor.
       */
     ~MainWindow();
-    int dificultad;
+    int nivel;
     void setName(QString name);
     QString getName();
+    void newGame(int d);
+    void setDifficulty(int value);
+    int getDifficulty();
 
 signals:
     void cellValueChanged(int index, int value);

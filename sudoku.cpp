@@ -23,20 +23,21 @@ void Sudoku::generate(int empty)
         2,8,7,4,1,9,6,3,5,
         3,4,5,2,8,6,1,7,9,
     };
-
-    srand(time(NULL));
-
     // Copy base board
     for (int i = 0; i < BOARD_SIZE * BOARD_SIZE; i++)
         cell[i] = preboard[i];
 
+    srand(time(NULL));
+
+
+
     // Swap block rows and columns at most 10 times each
     for(int swaps = 1; swaps <= 30; swaps++) {
         // Randomize the rows/columns
-        int i = rand() % 3;
-        int j = rand() % 3;
-        int k = rand() % 3;
-        int l = rand() % 3;
+        int i = rand() % 2;
+        int j = rand() % 2;
+        int k = rand() % 2;
+        int l = rand() % 2;
 
         swapBigRow(i, j);
         swapBigColumn(i, j);
@@ -60,6 +61,8 @@ void Sudoku::generate(int empty)
     for (int i =  0; i < BOARD_SIZE * BOARD_SIZE; i++)
         if (cell[i] != 0)
             emit cellChanged(i, cell[i]);
+
+
 }
 
 void Sudoku::swapBigRow(int i, int j)
@@ -68,6 +71,8 @@ void Sudoku::swapBigRow(int i, int j)
         for(int x = 0; x < BOARD_SIZE; x++)
             swap(x, y+3*i, x, y+3*j);
 }
+
+
 
 void Sudoku::swapBigColumn(int i, int j)
 {

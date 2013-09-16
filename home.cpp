@@ -26,33 +26,25 @@ Home::~Home()
 void Home::on_btnJugar_clicked()
 {
 
-    MainWindow *w; //Refetencia a la ventana que presenta la tabla sudoku
-
-       w = new MainWindow();
         //Nivel facil 36 celdas vacias."""
-       if(ui->radioButtonFacil->isChecked()){
-           this->setVisible(false);
-           w->show();
-           w->dificultad=1;        
-       }
-       //Nivel intermedio 36+9 = 45 celdas vacias.
-       else if (ui->radioButtonDificil->isChecked()){
-           this->setVisible(false);
-           w->show();
-           w->dificultad=3;
-       }
-       //Nivel dificil 36+9+9 = 63 celdas vacias.
-       else if (ui->radioButtonIntermedio->isChecked()){
-           this->setVisible(false);
-           w->show();
-           w->dificultad=2;
+       if(ui->radioButtonFacil->isChecked())
+           dificultad=1;
 
-       }else{
-           this->setVisible(false);
-           w->show();
-           w->dificultad=1;
-       }
-       w->setName(ui->txtNombre->text());
+       //Nivel intermedio 36+9 = 45 celdas vacias.
+       else if (ui->radioButtonDificil->isChecked())
+           dificultad=3;
+
+       //Nivel dificil 36+9+9 = 63 celdas vacias.
+       else if (ui->radioButtonIntermedio->isChecked())
+           dificultad=2;
+
+
+       this->setVisible(false);
+       mainwindow->show();
+       mainwindow->setName(ui->txtNombre->text());
+       mainwindow->newGame(dificultad);
+
+
 }
 
 void Home::on_btnEstadistica_clicked()
