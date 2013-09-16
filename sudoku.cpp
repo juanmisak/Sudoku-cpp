@@ -56,15 +56,10 @@ void Sudoku::generate(int empty)
         }
     }
 
-
-}
-
-void Sudoku::triggerChanges()
-{
     // Emit signal for filled cells
     for (int i =  0; i < BOARD_SIZE * BOARD_SIZE; i++)
         if (cell[i] != 0)
-            emit cellValueChanged(i, cell[i]);
+            emit cellChanged(i, cell[i]);
 }
 
 void Sudoku::swapBigRow(int i, int j)
@@ -206,7 +201,7 @@ void Sudoku::setCellValue(int index, int value)
 {
     if (cell[index] != value) {
         cell[index] = value;
-        emit cellValueChanged(index, value);
+        emit cellChanged(index, value);
     }
 }
 

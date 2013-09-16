@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     Home w;
-    w.setVisible(true);
+    w.show();
     //MainWindow w;
     //w.show();
     

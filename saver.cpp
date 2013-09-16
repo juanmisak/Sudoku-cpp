@@ -4,6 +4,12 @@
 #include "sudoku.h"
 #include <cstdlib>
 
+/**
+ * @class Saver
+ * @author Juan Mite
+ * @brief Con ayuda de esta clase se van a guardar los datos de la partida
+ */
+
 Saver::Saver(QObject *parent) :
     QObject(parent)
 {

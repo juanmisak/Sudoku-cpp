@@ -3,7 +3,6 @@
 
 #include <QGridLayout>
 #include <QPushButton>
-#include <QPushButton>
 #include <QIcon>
 
 Keyboard::Keyboard(QWidget *parent) :
@@ -20,12 +19,10 @@ Keyboard::Keyboard(QWidget *parent) :
     for ( int i = 1; i <= 10; i++)
     {
         numbers[i] = new QPushButton();
-        numbers[i]->setFlat(true);
+
 
         numbers[i]->setText(QString::number(i));
-        //QIcon icono = setIcon(i);
-        //numbers[i]->setIcon(icono);
-        //numbers[i]->setIconSize(QSize(20, 20));
+        numbers[i]->setStyleSheet("font: italic 26pt Courier 20 Pitch; background-color: rgb(82,163,53);");
         connect(numbers[i], &QPushButton::clicked, this, &Keyboard::selectNumber);
 
         /*
@@ -43,15 +40,16 @@ Keyboard::Keyboard(QWidget *parent) :
          * y = 3 - ( z + 2 ) / 3
          */
         keyboard->addWidget( numbers[i], 3-(i+2)/3, (i+2)%3 );
+
     }
 
-    QPushButton *setFinalMode = new QPushButton("F");
+    QPushButton *setFinalMode = new QPushButton("Final");
     connect(setFinalMode, &QPushButton::clicked, this, &Keyboard::setModeToFinal);
     keyboard->addWidget(setFinalMode, 3, 0);
 
-    QPushButton *setAnnotationMode = new QPushButton("A");
+    QPushButton *setAnnotationMode = new QPushButton("Anota");
     connect(setAnnotationMode, &QPushButton::clicked, this, &Keyboard::setModeToAnnotation);
-    keyboard->addWidget(setAnnotationMode, 3, 1);
+    keyboard->addWidget(setAnnotationMode, 3, 2);
 
 }
 

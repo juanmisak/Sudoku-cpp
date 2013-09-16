@@ -15,7 +15,14 @@ Cell::Cell(QWidget *parent) :
           font1.setPointSize(16);
           font1.setBold(false);
           font1.setWeight(50);
+
+          //this->setFont(font1);
+    //QIcon icon1;
+    //       icon1.addFile(QStringLiteral(":/images/Mysitemyway-Blue-Jeans-Social-Media-Delicious-square.ico"), QSize(), QIcon::Normal, QIcon::Off);
+    //this->setIcon(icon1);
+    //this->setIconSize(QSize(30, 30));
     this->backgroundRole();
+    //this->setFlat(true);
 
     value = new QPushButton();
     connect(value, &QPushButton::clicked, this, &Cell::clicked);
@@ -80,8 +87,9 @@ void Cell::setMode(Mode mode)
     switch (mode) {
 
         case Cell::Final:
-            for (int i = 0; i < N_ANNOTATIONS; i++)
-                annotations[i]->hide();
+            for (int i = 0; i < N_ANNOTATIONS; i++){
+                annotations[i]->hide();annotations[i]->setToolTip("anota un numero");
+annotations[i]->setStyleSheet("font: italic 23pt Courier 2 Pitch; background-color: rgb(82,163,153);");}
             value->show();
             layout->addWidget(value);
             break;
@@ -91,6 +99,8 @@ void Cell::setMode(Mode mode)
             for (int i = 0; i < N_ANNOTATIONS; i++)
             {
                 annotations[i]->show();
+
+                annotations[i]->setStyleSheet("font: italic 7pt Courier 2 Pitch; background-color: rgb(82,163,136);");
                 layout->addWidget(annotations[i], i/3, i%3);
             }
             break;

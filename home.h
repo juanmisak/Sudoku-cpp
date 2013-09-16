@@ -1,10 +1,9 @@
 #ifndef HOME_H
 #define HOME_H
+#include <mainwindow.h>
+#include <developer.h>
+#include <estadistica.h>
 #include <QDialog>
-
-class MainWindow;
-class Developer;
-class Estadistica;
 
 namespace Ui {
 class Home;
@@ -28,8 +27,13 @@ public:
     ~Home();
     
 private slots:
+
+
+
     void on_btnJugar_clicked();
+
     void on_btnEstadistica_clicked();
+
     void on_btnDesarrolladores_clicked();
 
 private:
@@ -38,7 +42,7 @@ private:
       * Detalles.
       */
     Ui::Home *ui;
-    MainWindow *mainwindow;
+    MainWindow *w;
     Developer *d;
     Estadistica *e;
 

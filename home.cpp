@@ -11,7 +11,7 @@ Home::Home(QWidget *parent) :
   {
     ui->setupUi(this);
 
-    mainwindow = new MainWindow();
+    w = new MainWindow();
     d = new Developer();
     e = new Estadistica();
   }
@@ -19,43 +19,44 @@ Home::Home(QWidget *parent) :
 Home::~Home()
 {
     delete ui;
-    delete mainwindow;
-    delete d;
-    delete e;
 }
-/**
- * Inserta un título en la clase descripción.
- * Al ser el título obligatorio, si es nulo o vacío se lanzará
- * una excepción.
- *
- * @param titulo El nuevo título de la descripción.
- * @throws IllegalArgumentException Si titulo es null, está vacío o contiene sólo espacios.
- */
+
+
+
+
 void Home::on_btnJugar_clicked()
 {
-    int dificultad;
-       //Nivel facil 36 celdas vacias."""
-       if(ui->radioButtonFacil->isChecked()){
-           dificultad=1;
-       }     
-       else if (ui->radioButtonIntermedio->isChecked()){
-           dificultad=2;
+
+
+       bool noChenck = ui->radioButtonDificil->isChecked() | ui->radioButtonIntermedio->isChecked() | ui->radioButtonFacil->isChecked();
+       if(noChenck == false){
+           this->setVisible(false);
+           w->setVisible(true);
+           w->dificultad=1;
+
        }
        else if (ui->radioButtonDificil->isChecked()){
-           dificultad=3;
-       }else{
-           dificultad=1;
+           this->setVisible(false);
+           w->show();
+           w->dificultad=3;
+
        }
-       this->setVisible(false);
-       mainwindow->setVisible(true);
-       mainwindow->setDifficulty(dificultad);
-       mainwindow->newGame(ui->txtNombre->text(),0,NULL);
+       else if (ui->radioButtonIntermedio->isChecked()){
+           this->setVisible(false);
+           w->show();
+           w->dificultad=2;
 
+       }else{
+           this->setVisible(false);
+           w->show();
+           w->dificultad=1;
 
+       }
 }
 
 void Home::on_btnEstadistica_clicked()
 {
+
     e->graficarEstadisticas("Juan",133,"Esteban",106,"Ramón",84,"Micka",50,"Andrea",40);
     e->setVisible(true);
     this->close();
