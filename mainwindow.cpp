@@ -10,8 +10,10 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow),
-    dificultad(2)
+    ui(new Ui::MainWindow)
+
+
+
  /**
   * Constructor
   * Se inicializa el constructor con 81 celdas que seran
@@ -23,17 +25,13 @@ MainWindow::MainWindow(QWidget *parent) :
   * @see ui referencia a MainWindow
   */
 {
+
     ui->setupUi(this);
     initBoard();
     timer = new QTimer(this);
+
     // Generate sudoku and make the board visible,
-    sudoku = new Sudoku();
-    connect(sudoku, &Sudoku::cellChanged, this, &MainWindow::setCellValue);
-    sudoku->generate(dificultad*BOARD_SIZE + 3*BOARD_SIZE);
-    disconnect(sudoku, &Sudoku::cellChanged, this, &MainWindow::setCellValue);
-    initTimer(0);
-    // Update the model when the view is changed
-    connect(this, &MainWindow::cellValueChanged, sudoku, &Sudoku::setCellValue);
+
 }
 
 /**
@@ -43,6 +41,18 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete keyboard;
+}
+
+void MainWindow::newGame(int dif)
+{
+    sudoku = new Sudoku();
+
+    connect(sudoku, &Sudoku::cellChanged, this, &MainWindow::setCellValue);
+    sudoku->generate(dif*BOARD_SIZE + 3*BOARD_SIZE);
+    disconnect(sudoku, &Sudoku::cellChanged, this, &MainWindow::setCellValue);
+    initTimer(0);
+    // Update the model when the view is changed
+    connect(this, &MainWindow::cellValueChanged, sudoku, &Sudoku::setCellValue);
 }
 
 void MainWindow::initBoard()
@@ -62,23 +72,10 @@ void MainWindow::initBoard()
         }
 
         ui->board->addWidget(cell[i], y, x);
-/*
-        connect(cell[i], &Cell::clicked , this, &MainWindow::celda_clicked);
-        connect(cell[i], &Cell::clicked, keyboard, &Keyboard::show);
-        connect(cell[i], &Cell::valueChanged, this, &MainWindow::setCellValueFromView);
-*/
+
         cell[i]->setKeyboard(keyboard);
          cell[i]->setStyleSheet("font: italic 26pt Courier 20 Pitch; background-color: rgb(82, 163, 53);");
-    }/*
-    connect(ui->pushButton1, &QPushButton::clicked, this, &MainWindow::number_clicked);
-    connect(ui->pushButton2, &QPushButton::clicked, this, &MainWindow::number_clicked);
-    connect(ui->pushButton3, &QPushButton::clicked, this, &MainWindow::number_clicked);
-    connect(ui->pushButton4, &QPushButton::clicked, this, &MainWindow::number_clicked);
-    connect(ui->pushButton5, &QPushButton::clicked, this, &MainWindow::number_clicked);
-    connect(ui->pushButton6, &QPushButton::clicked, this, &MainWindow::number_clicked);
-    connect(ui->pushButton7, &QPushButton::clicked, this, &MainWindow::number_clicked);
-    connect(ui->pushButton8, &QPushButton::clicked, this, &MainWindow::number_clicked);
-    connect(ui->pushButton9, &QPushButton::clicked, this, &MainWindow::number_clicked);*/
+    }
 }
 
 void MainWindow::initTimer(int elapsedSeconds)
@@ -119,6 +116,16 @@ void MainWindow::setName(QString name)
     ui->btnJugador->setText(name);
 }
 
+void MainWindow::setDifficulty(int value)
+{
+   nivel=value;
+}
+int MainWindow::getDifficulty()
+{
+    return nivel;
+}
+
+
 void MainWindow::on_actionSalir_triggered()
 /**
  * Evento que permite salir de la aplicacion.
@@ -127,38 +134,6 @@ void MainWindow::on_actionSalir_triggered()
 {
     qApp->quit();
 }
-/*
-void MainWindow::celda_clicked()
-{
-    // Get input number
-    Cell *cell = (Cell *) sender();
-   //cell->setText(QString(selectedNumber));
-    //cell->setIcon(icon1);
-
-}
-
-void MainWindow::number_clicked()
-{
-    QPushButton *button = (QPushButton *) sender();
-        if (button == ui->pushButton1)
-            icon1.addFile(QStringLiteral(": "), QSize(), QIcon::Normal, QIcon::Off);
-        else if (button == ui->pushButton2)
-            icon1.addFile(QStringLiteral(":/images/Numbers-2.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        else if (button == ui->pushButton3)
-            icon1.addFile(QStringLiteral(":/images/Numbers-3.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        else if (button == ui->pushButton4)
-            icon1.addFile(QStringLiteral(":/images/Numbers-4.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        else if (button == ui->pushButton5)
-            icon1.addFile(QStringLiteral(":/images/Numbers-5.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        else if (button == ui->pushButton6)
-            icon1.addFile(QStringLiteral(":/images/Numbers-6.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        else if (button == ui->pushButton7)
-            icon1.addFile(QStringLiteral(":/images/Numbers-7.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        else if (button == ui->pushButton8)
-            icon1.addFile(QStringLiteral(":/images/Numbers-8.ico"), QSize(), QIcon::Normal, QIcon::Off);
-        else if (button == ui->pushButton9)
-            icon1.addFile(QStringLiteral(":/images/Numbers-9.ico"), QSize(), QIcon::Normal, QIcon::Off);
-}*/
 
 void MainWindow::setCellValue(int index, int value)
 {

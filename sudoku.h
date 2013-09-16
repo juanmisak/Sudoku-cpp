@@ -15,6 +15,7 @@ public:
     void badCells(int cells[]);
     void suggestedValues(int index, int suggestedCells[]);
     int getCellValue(int index);
+    void shuffle(int empty);
 
 signals:
     void cellChanged(int index, int value);

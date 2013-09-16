@@ -38,6 +38,7 @@ private slots:
     void on_btnDesarrolladores_clicked();
 
 private:
+     int dificultad;
     /**
       * Una variable privada.
       * Detalles.
