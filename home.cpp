@@ -43,6 +43,7 @@ void Home::on_btnJugar_clicked()
        mainwindow->show();
        mainwindow->setName(ui->txtNombre->text());
        mainwindow->newGame(dificultad);
+       mainwindow->setDifficulty(dificultad);
 
 
 }

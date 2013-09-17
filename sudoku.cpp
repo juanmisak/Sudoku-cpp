@@ -46,16 +46,25 @@ void Sudoku::generate(int empty)
     }
 
     // Empty cells
-    while(empty > 0)
+  /*  while(empty == 81)
     {
-        int i = rand() % (BOARD_SIZE * BOARD_SIZE);
+        int i = BOARD_SIZE * BOARD_SIZE;
 
-        if (cell[i] != 0)
+        if (i != 10)
         {
             cell[i] = 0;
             empty--;
         }
-    }
+    }*/
+    for(int i=0;i<BOARD_SIZE * BOARD_SIZE;i++){
+        if (i%2==1) cell[i]=0;
+        if(i==26||i==74||i==78||i==62) cell[i] = 0;}
+
+
+    for(int i=2;i<BOARD_SIZE * BOARD_SIZE;i=i*3)
+        cell[i]=0;
+
+
 
     // Emit signal for filled cells
     for (int i =  0; i < BOARD_SIZE * BOARD_SIZE; i++)

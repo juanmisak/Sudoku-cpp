@@ -35,6 +35,7 @@ public:
     void setName(QString name);
     QString getName();
     void newGame(int d);
+    void newG(int d,Sudoku sudo);
     void setDifficulty(int value);
     int getDifficulty();
 

@@ -178,6 +178,7 @@ void MainWindow::on_actionATRAS_triggered()
 void MainWindow::on_actionJUEGO_NUEVO_triggered()
 {
 
+    newGame(getDifficulty());
 }
 
 void MainWindow::on_endGameButton_triggered()
@@ -191,7 +192,7 @@ void MainWindow::on_endGameButton_triggered()
 void MainWindow::on_actionGUARDAR_triggered()
 {
  QMessageBox ms;
- saver->save(cell);
+
     ms.setText("Partida guardada");
     ms.exec();
 }
